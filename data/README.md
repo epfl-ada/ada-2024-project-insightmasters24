@@ -4,11 +4,7 @@ David Bamman, Brendan O'Connor and Noah Smith, "Learning Latent Personas of Film
 
 All data is released under a Creative Commons Attribution-ShareAlike License. For questions or comments, please contact David Bamman (dbamman@cs.cmu.edu).
 
-###
-#
 # DATA
-#
-###
 
 1. plot_summaries.txt.gz [29 M] 
 
@@ -19,14 +15,9 @@ Plot summaries of 42,306 movies extracted from the November 2, 2012 dump of Engl
 
 The plot summaries from above, run through the Stanford CoreNLP pipeline (tagging, parsing, NER and coref). Each filename begins with the Wikipedia movie ID (which indexes into movie.metadata.tsv).
 
-
-###
-#
 # METADATA
-#
-###
 
-3. movie.metadata.tsv.gz [3.4 M]
+1. movie.metadata.tsv.gz [3.4 M]
 
 
 Metadata for 81,741 movies, extracted from the Noverber 4, 2012 dump of Freebase.  Tab-separated; columns:
@@ -61,12 +52,7 @@ Metadata for 450,669 characters aligned to the movies above, extracted from the 
 12. Freebase character ID
 13. Freebase actor ID
 
-
-##
-#
 # TEST DATA
-#
-##
 
 tvtropes.clusters.txt
 
