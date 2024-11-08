@@ -1,29 +1,22 @@
+# Analyzing the Evolution of Character Archetypes and Genres over Time to Predict Movie Revenue
 
-# Your project name
-This is a template repo for your project to help you organise and document your code better. 
-Please use this structure for your project and document the installation, usage and structure as below.
+This project aims to:
+- Analyze the evolution of character archetypes and genre trends in films over time.
+- Develop a predictive model to forecast the revenue of a movie based on its character archetype and genre.
 
-## Quickstart
+## Research Questions
 
-```bash
-# clone project
-git clone <project link>
-cd <project repo>
+1. How have character archetypes evolved over time?
+2. How have genres evolved over time?
+3. How does the combination of character archetypes and genres impact a film's revenue?
 
-# [OPTIONAL] create conda environment
-conda create -n <env_name> python=3.11 or ...
-conda activate <env_name>
+## Methods
 
+## Proposed timeline
 
-# install requirements
-pip install -r pip_requirements.txt
-```
+## Organization within the team
 
-
-
-### How to use the library
-Tell us how the code is arranged, any explanations goes here.
-
+## Questions for TAs
 
 
 ## Project Structure
