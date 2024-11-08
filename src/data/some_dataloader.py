@@ -1,9 +1,10 @@
 import torch
 import numpy as np
+import pandas as pd
 from torch.utils.data import DataLoader, Dataset
 
 
-class SomeDataset(Dataset):
+class Create_Dataset(Dataset):
     """
     A dataset implements 2 functions
         - __len__  (returns the number of samples in our dataset)
@@ -15,10 +16,15 @@ class SomeDataset(Dataset):
         ...
 
 
+
 class SomeDatamodule(DataLoader):
-     """
+    """
     Allows you to sample train/val/test data, to later do training with models.
         
     """
+     
     def __init__(self):
         super().__init__()
+        ...
+
+df = pd.read_csv('../../data/movie.metadata.tsv')
