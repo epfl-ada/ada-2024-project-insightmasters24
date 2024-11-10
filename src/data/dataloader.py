@@ -9,7 +9,9 @@ from src.utils.data_utils import reorder_column
 class DataLoader:
     def __init__(self):
         current_dir = os.path.dirname(os.path.abspath(__file__))
-        data_dir = os.path.join(os.path.dirname(os.path.dirname(current_dir)), "data")
+        data_dir = os.path.join(
+            os.path.dirname(os.path.dirname(current_dir)), "datasets"
+        )
         self.paths = {
             "character": os.path.join(data_dir, "character.metadata.tsv"),
             "movie": os.path.join(data_dir, "movie.metadata.tsv"),
