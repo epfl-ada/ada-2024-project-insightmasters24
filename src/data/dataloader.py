@@ -1,18 +1,22 @@
 import json
+import os
 
 import pandas as pd
-from helper import reorder_column
+
+from src.utils.data_utils import reorder_column
 
 
 class DataLoader:
     def __init__(self):
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        data_dir = os.path.join(os.path.dirname(os.path.dirname(current_dir)), "data")
         self.paths = {
-            "character": "../../data/character.metadata.tsv",
-            "movie": "../../data/movie.metadata.tsv",
-            "name": "../../data/name.clusters.tsv",
-            "plot": "../../data/plot_summaries.tsv",
-            "tvtropes": "../../data/tvtropes.clusters.tsv",
-            "fb_wiki": "../../data/freebase_wikidata_mapping.tsv",
+            "character": os.path.join(data_dir, "character.metadata.tsv"),
+            "movie": os.path.join(data_dir, "movie.metadata.tsv"),
+            "name": os.path.join(data_dir, "name.clusters.tsv"),
+            "plot": os.path.join(data_dir, "plot_summaries.tsv"),
+            "tvtropes": os.path.join(data_dir, "tvtropes.clusters.tsv"),
+            "fb_wiki": os.path.join(data_dir, "freebase_wikidata_mapping.tsv"),
         }
 
     def _load_tsv(self, path: str, names: list = None) -> pd.DataFrame:
