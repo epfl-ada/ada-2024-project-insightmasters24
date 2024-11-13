@@ -127,6 +127,8 @@ class DataLoader:
 
         df.rename(columns={"Wikipedia movie ID": "wikipedia_movie_id"}, inplace=True)
 
+        df["Movie release date"] = df["Movie release date"].replace("1010", "2010")
+
         return df
 
     def load_movies_with_characters(self) -> pd.DataFrame:
