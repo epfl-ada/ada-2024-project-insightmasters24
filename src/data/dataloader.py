@@ -1,10 +1,7 @@
 import json
 import os
-
 import pandas as pd
-
 from src.utils.data_utils import reorder_column
-
 
 class DataLoader:
     def __init__(self):
@@ -35,9 +32,12 @@ class DataLoader:
             inplace=True,
         )
 
+        # Get mapping once
+        fb_wiki_mapping = self.load_fb_wiki_mapping()
+
         # Map ethnicity
         df = df.merge(
-            self.load_fb_wiki_mapping()[["freebase_id", "label"]],
+            fb_wiki_mapping[["freebase_id", "label"]],
             how="left",
             left_on="Actor ethnicity (Freebase ID)",
             right_on="freebase_id",
@@ -47,7 +47,7 @@ class DataLoader:
 
         # Map character ID
         df = df.merge(
-            self.load_fb_wiki_mapping()[["freebase_id", "wikidata_id"]],
+            fb_wiki_mapping[["freebase_id", "wikidata_id"]],
             how="left",
             left_on="Freebase character ID",
             right_on="freebase_id",
@@ -57,7 +57,7 @@ class DataLoader:
 
         # Map actor ID
         df = df.merge(
-            self.load_fb_wiki_mapping()[["freebase_id", "wikidata_id"]],
+            fb_wiki_mapping[["freebase_id", "wikidata_id"]],
             how="left",
             left_on="Freebase actor ID",
             right_on="freebase_id",
@@ -67,7 +67,7 @@ class DataLoader:
 
         # Map Freebase movie ID
         df = df.merge(
-            self.load_fb_wiki_mapping()[["freebase_id", "wikidata_id"]],
+            fb_wiki_mapping[["freebase_id", "wikidata_id"]],
             how="left",
             left_on="Freebase movie ID",
             right_on="freebase_id",
@@ -92,7 +92,7 @@ class DataLoader:
         # Reorder columns to put wikidata_movie_id in second place
         df = reorder_column(df, "wikidata_movie_id", 1)
 
-        # TODO: Remove this because we only have 500 tropes
+        # Add this in case we want to use the 500 TV tropes
         # df = pd.merge(
         #     df,
         #     self.load_tvtropes()[["trope", "Freebase character/actor map ID"]],
@@ -127,7 +127,14 @@ class DataLoader:
 
         df.rename(columns={"Wikipedia movie ID": "wikipedia_movie_id"}, inplace=True)
 
+        # Fix outlier movie release date
         df["Movie release date"] = df["Movie release date"].replace("1010", "2010")
+
+        # Remove movies outside the 1910-2012 range
+        df = df[
+            (pd.to_numeric(df['Movie release date'], errors='coerce') >= 1910) &
+            (pd.to_numeric(df['Movie release date'], errors='coerce') <= 2012)
+        ]
 
         return df
 
@@ -215,14 +222,3 @@ class DataLoader:
     def load_fb_wiki_mapping(self) -> pd.DataFrame:
         """Load Freebase to Wikipedia mapping"""
         return self._load_tsv(self.paths["fb_wiki"])
-
-    def load_all_data(self) -> tuple:
-        """Load all datasets and return them as a tuple"""
-        return (
-            self.load_characters(),
-            self.load_movies(),
-            self.load_name_clusters(),
-            self.load_plot_summaries(),
-            self.load_tvtropes(),
-            self.load_fb_wiki_mapping(),
-        )
