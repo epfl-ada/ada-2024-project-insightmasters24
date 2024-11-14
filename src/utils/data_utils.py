@@ -36,6 +36,7 @@ def get_revenue(wikidata_id):
         return None
 
 def update_movie_revenue(movie_df):
+    print("Processing")
     """Update the movie revenue for movies having a missing revenue"""
     def process_row(index, row):
         """Process a row to update the movie revenue"""
@@ -45,8 +46,6 @@ def update_movie_revenue(movie_df):
         revenue = get_revenue(row["wikidata_movie_id"])
         if revenue == 0:
             revenue = None
-
-        print(f"revenue for index {index}: {revenue}")
         return index, revenue
 
     # Create a thread pool executor

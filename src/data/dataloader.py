@@ -135,6 +135,8 @@ class DataLoader:
             (pd.to_numeric(df['Movie release date'], errors='coerce') >= 1910) &
             (pd.to_numeric(df['Movie release date'], errors='coerce') <= 2012)
         ]
+        # Drop movie runtime column
+        df.drop(columns=["Movie runtime"], inplace=True)
 
         return df
 
@@ -163,9 +165,6 @@ class DataLoader:
                     "Movie box office revenue": lambda x: x.dropna().iloc[0]
                     if not x.dropna().empty
                     else None,
-                    "Movie runtime": lambda x: x.dropna().iloc[0]
-                    if not x.dropna().empty
-                    else None,
                     "Movie languages": lambda x: x.dropna().iloc[0]
                     if not x.dropna().empty
                     else None,
@@ -175,11 +174,11 @@ class DataLoader:
                     "Movie genres": lambda x: x.dropna().iloc[0]
                     if not x.dropna().empty
                     else None,
-                    "character_name": lambda x: ", ".join(x.astype(str)),
-                    "actor_gender": lambda x: ", ".join(x.astype(str)),
-                    "actor_height_meters": lambda x: ", ".join(x.astype(str)),
-                    "actor_age_at_release": lambda x: ", ".join(x.astype(str)),
-                    "ethnicity": lambda x: ", ".join(x.astype(str)),
+                    "character_name": lambda x: ", ".join(x[~x.isna()].astype(str)),
+                    "actor_gender": lambda x: ", ".join(x[~x.isna()].astype(str)),
+                    "actor_height_meters": lambda x: ", ".join(x[~x.isna()].astype(str)),
+                    "actor_age_at_release": lambda x: ", ".join(x[~x.isna()].astype(str)), 
+                    "ethnicity": lambda x: ", ".join(x[~x.isna()].astype(str)),
                 }
             )
             .reset_index()

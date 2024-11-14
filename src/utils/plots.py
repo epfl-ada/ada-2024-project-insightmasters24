@@ -21,9 +21,6 @@ def plot_gender_proportions(df):
     # Clean up the gender values (strip whitespace) and handle nan values
     df_exploded["actor_gender"] = df_exploded["actor_gender"].str.strip()
 
-    # Remove rows where actor_gender is nan, 'nan', or empty string
-    df_exploded = df_exploded[~(df_exploded["actor_gender"] == "nan")]
-
     # Calculate proportions by year
     proportions = (
         df_exploded.groupby("Movie release date")["actor_gender"]
@@ -37,7 +34,7 @@ def plot_gender_proportions(df):
     plt.title("Gender Proportions of Actors Over Time")
     plt.xlabel("Year")
     plt.ylabel("Proportion")
-    plt.legend(title="Gender")
+    plt.legend(title="Gender", loc='upper right')
     plt.grid(True, alpha=0.3)
     plt.xticks(rotation=45)
     plt.tight_layout()
@@ -120,7 +117,9 @@ def plot_age_proportions_by_gender(df: pd.DataFrame):
     df_exploded = df.assign(
         actor_age=df["actor_age_at_release"].str.split(","),
         actor_gender=df["actor_gender"].str.split(","),
-    ).explode(["actor_age", "actor_gender"])
+    )
+    df_exploded = df_exploded.explode("actor_age")
+    df_exploded = df_exploded.explode("actor_gender")
 
     # Convert age to numeric and clean up
     df_exploded["actor_age"] = pd.to_numeric(df_exploded["actor_age"], errors="coerce")
@@ -222,7 +221,7 @@ def plot_top_genres_by_year(df):
         .dropna()
         .astype(int)
         .sort_values(ascending=False)
-        .unique()[:13]
+        .unique()[:20]
     )
 
     top_genres_per_year = pd.DataFrame()
@@ -305,17 +304,21 @@ def plot_ethnicity_proportions(df):
     plt.show()
 
 def plot_lgbtq_movies_per_year(df):
-    """Plot the total number of movies with LGBTQ+ related themes per year considering mentions in the plot summaries"""
-    # Create a boolean mask for plots containing any of the terms
+    """Plot the total number of movies with LGBTQ+ related themes per year considering mentions in plot summaries and genres"""
+    # Create boolean masks for plots and genres containing LGBTQ+ terms
     lgbtq_mentions = df['plot'].str.lower().str.contains('|'.join(lgbtq_terms), na=False)
+    lgbtq_genres = df['Movie genres'].str.lower().str.contains('lgbt', na=False)
+    
+    # Combine masks to find movies with either LGBTQ+ mentions in plot or genres
+    lgbtq_movies = lgbtq_mentions | lgbtq_genres
 
     # Group by year and count occurrences, excluding 'nan' years
-    lgbtq_counts = df[lgbtq_mentions].groupby('Movie release date').size()
+    lgbtq_counts = df[lgbtq_movies].groupby('Movie release date').size()
     lgbtq_counts = lgbtq_counts[lgbtq_counts.index != 'nan']
 
     plt.figure(figsize=(25, 7))
     plt.plot(lgbtq_counts.index, lgbtq_counts.values, color='purple', marker='o', markersize=8)
-    plt.title('Number of Movies with LGBTQ+ Themes Per Year')
+    plt.title('Number of Movies with LGBTQ+ Themes (Plot Mentions or Genres) Per Year')
     plt.xlabel('Year')
     plt.ylabel('Count')
     plt.grid(True)
@@ -328,11 +331,15 @@ def plot_lgbtq_movies_percentage_per_period(df):
     # Convert years to 5-year periods for smoothing
     df['Period'] = pd.to_numeric(df['Movie release date'], errors='coerce') // 5 * 5
 
-    # Create a boolean mask for plots containing any of the terms
+    # Create boolean masks for plots and genres containing LGBTQ+ terms
     lgbtq_mentions = df['plot'].str.lower().str.contains('|'.join(lgbtq_terms), na=False)
+    lgbtq_genres = df['Movie genres'].str.lower().str.contains('lgbt', na=False)
+    
+    # Combine masks to find movies with either LGBTQ+ mentions in plot or genres
+    lgbtq_movies = lgbtq_mentions | lgbtq_genres
 
     # Calculate percentage of LGBTQ+ movies per 5-year period
-    lgbtq_counts = df[lgbtq_mentions].groupby('Period').size()
+    lgbtq_counts = df[lgbtq_movies].groupby('Period').size()
     movies_per_period = df.groupby('Period').size()
     lgbtq_percentage = (lgbtq_counts / movies_per_period * 100).dropna()
 
@@ -361,7 +368,7 @@ def create_feature_matrix(df):
         df['ethnicity'].str.split(', ')
         .explode()
         .value_counts()
-        .iloc[1:7]
+        .iloc[1:6]
         .index
     )
     
