@@ -1,11 +1,6 @@
 import matplotlib.pyplot as plt
-import seaborn as sns
-import numpy as np
-from sklearn.cluster import KMeans
-from sklearn.decomposition import TruncatedSVD
-from sklearn.feature_extraction.text import TfidfVectorizer
-import matplotlib.pyplot as plt
 import pandas as pd
+import seaborn as sns
 
 # List of LGBTQ+ related terms
 lgbtq_terms = ['gay', 'lesbian', 'homosexual', 'homosexuality', 'bisexual', 'transgender', 'queer', 'trans', 'transsexual', 'transvestite', 'transvestism']
@@ -295,7 +290,7 @@ def plot_ethnicity_proportions(df):
 
     # Count the non nan values and get top 8
     ethnicity_counts = ethnicity_counts[ethnicity_counts.index != "nan"]
-    top_10_ethnicities = ethnicity_counts.head(8)
+    top_10_ethnicities = ethnicity_counts[1:9]
     others = pd.Series({'Others': ethnicity_counts[8:].sum()})
     ethnicity_counts_final = pd.concat([top_10_ethnicities, others])
 
