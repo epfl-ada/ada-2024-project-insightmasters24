@@ -18,6 +18,9 @@ The evolution of gender, ethnic, and other apparent physical features representa
 - **Movie Revenue Dataset**:  
   To enhance our movie dataset, we integrated box office revenue data sourced from Wikidata, using unique movie identifiers for direct access. Initially, our dataset included revenue data for 8168 movies; after augmentation, this increased to 9062 movies, enabling us to have more data for our prediction of the movie revenue.
 
+- **TMDB Movie Dataset**:  
+  To fill missing values for the release date and additional revenue data of the movies, we used the TMDB movie dataset. [Dataset on Kaggle](https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset)
+
 ## Methods
 
 ### Data Preprocessing
@@ -35,6 +38,10 @@ Movie and character data are merged on "wikipedia_movie_id," with character attr
 For movies with missing revenue values, data is retrieved from Wikidata using unique Wikidata IDs obtained from our updated dataset. To handle rows with NaN values in revenue, each movie’s information is requested via its specific Wikidata ID. Given the substantial dataset size of approximately 64,000 samples, this process can be time-intensive. Therefore, we implemented parallel processing, allowing multiple requests to be handled simultaneously. This parallelization drastically reduced runtime from over 4 hours to just 20 minutes, enabling faster data completion.
 
 Notice that we did not remove remaining NaN values of movie box office revenue at this stage because we still wanted to observe the other parameters that were given for exploratory data distribution purposes. We decided not to clean the columns that we are not using at this stage of the project, and we will manage missing values for those columns if required in the future. We also decided not to drop these columns in case we need them later. We used the Freebase-to-Wikidata Mapping Dataset to map Freebase ethnicity IDs to their corresponding Wikidata IDs and retrieve the labels.
+
+We also used the TMDB movie dataset to fill missing values for the release date and additional revenue data of the movies. We merge the datasets on the title column.
+
+We cleaned the actor age data by removing actors that had a negative age (indicating they were born after the movie release date) and actors with unrealistic ages (over 100 years old at the time of movie release) to ensure data quality.
 
 ### Exploratory Data Analysis
 
