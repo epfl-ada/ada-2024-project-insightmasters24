@@ -41,6 +41,8 @@ Notice that we did not remove remaining NaN values of movie box office revenue a
 
 We also used the TMDB movie dataset to fill missing values for the release date and additional revenue data of the movies. We merge the datasets on the title column.
 
+We cleaned the actor age data by removing actors that had a negative age (indicating they were born after the movie release date) and actors with unrealistic ages (over 100 years old at the time of movie release) to ensure data quality.
+
 ### Exploratory Data Analysis
 
 #### Preliminary Data Distribution Visualization
