@@ -127,15 +127,6 @@ class DataLoader:
 
         df.rename(columns={"Wikipedia movie ID": "wikipedia_movie_id"}, inplace=True)
 
-        print(
-            "Number of movies with missing release date:",
-            df["Movie release date"].isna().sum(),
-        )
-        print(
-            "Number of movies with missing revenue:",
-            df["Movie box office revenue"].isna().sum(),
-        )
-
         # Add TMDB release dates and revenue for movies with missing data
         tmdb_df = pd.read_csv(self.paths["tmdb_movies"])
         tmdb_df = tmdb_df[["title", "release_date", "revenue"]]
@@ -150,15 +141,6 @@ class DataLoader:
             df["revenue"]
         )
         df.drop(columns=["title", "release_date", "revenue"], inplace=True)
-
-        print(
-            "Number of movies with missing release date:",
-            df["Movie release date"].isna().sum(),
-        )
-        print(
-            "Number of movies with missing revenue:",
-            df["Movie box office revenue"].isna().sum(),
-        )
 
         # Keep only the year from the release date
         # e.g. "2024-01-01" -> "2024"
