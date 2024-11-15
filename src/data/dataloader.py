@@ -96,6 +96,47 @@ class DataLoader:
         # Reorder columns to put wikidata_movie_id in second place
         df = reorder_column(df, "wikidata_movie_id", 1)
 
+        def clean_actor_age(df: pd.DataFrame):
+            # Merge with movies to get release dates
+            movies_df = self.load_movies()[["wikipedia_movie_id", "Movie release date"]]
+            df = pd.merge(df, movies_df, on="wikipedia_movie_id")
+
+            # Extract birth year and movie release year
+            df["actor_birth_year"] = pd.to_numeric(
+                df["actor_date_of_birth"].str[:4], errors="coerce"
+            )
+            df["movie_release_year"] = pd.to_numeric(
+                df["Movie release date"], errors="coerce"
+            )
+            df.drop(columns=["Movie release date"], inplace=True)
+
+            # Filter out invalid years (before 1800 and after 2014)
+            df = df[
+                (df["actor_birth_year"].isna())
+                | ((df["actor_birth_year"] > 1800) & (df["actor_birth_year"] < 2014))
+            ]
+
+            # Calculate age at release
+            df["actor_age_at_release"] = (
+                df["movie_release_year"] - df["actor_birth_year"]
+            )
+
+            # Keep only actors with age at release > 0 and < 100 or NaN
+            df = df[
+                (df["actor_age_at_release"].isna())
+                | (
+                    (df["actor_age_at_release"] >= 0)
+                    & (df["actor_age_at_release"] < 100)
+                )
+            ]
+
+            # Clean up temporary columns
+            df.drop(columns=["actor_birth_year", "movie_release_year"], inplace=True)
+
+            return df
+
+        df = clean_actor_age(df)
+
         # Add this in case we want to use the 500 TV tropes
         # df = pd.merge(
         #     df,
