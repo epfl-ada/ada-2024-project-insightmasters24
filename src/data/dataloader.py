@@ -1,7 +1,10 @@
 import json
 import os
+
 import pandas as pd
+
 from src.utils.data_utils import reorder_column
+
 
 class DataLoader:
     def __init__(self):
@@ -16,6 +19,7 @@ class DataLoader:
             "plot": os.path.join(data_dir, "plot_summaries.tsv"),
             "tvtropes": os.path.join(data_dir, "tvtropes.clusters.tsv"),
             "fb_wiki": os.path.join(data_dir, "freebase_wikidata_mapping.tsv"),
+            "tmdb_movies": os.path.join(data_dir, "tmdb/movies_metadata.csv"),
         }
 
     def _load_tsv(self, path: str, names: list = None) -> pd.DataFrame:
@@ -121,20 +125,54 @@ class DataLoader:
             )
             df.drop(columns=[old_col], inplace=True)
 
+        df.rename(columns={"Wikipedia movie ID": "wikipedia_movie_id"}, inplace=True)
+
+        print(
+            "Number of movies with missing release date:",
+            df["Movie release date"].isna().sum(),
+        )
+        print(
+            "Number of movies with missing revenue:",
+            df["Movie box office revenue"].isna().sum(),
+        )
+
+        # Add TMDB release dates and revenue for movies with missing data
+        tmdb_df = pd.read_csv(self.paths["tmdb_movies"])
+        tmdb_df = tmdb_df[["title", "release_date", "revenue"]]
+        tmdb_df["release_date"] = tmdb_df["release_date"].str[:4]  # Keep only year
+
+        # Merge with TMDB data
+        df = df.merge(tmdb_df, left_on="Movie name", right_on="title", how="left")
+
+        # Fill missing dates and revenue with TMDB data
+        df["Movie release date"] = df["Movie release date"].fillna(df["release_date"])
+        df["Movie box office revenue"] = df["Movie box office revenue"].fillna(
+            df["revenue"]
+        )
+        df.drop(columns=["title", "release_date", "revenue"], inplace=True)
+
+        print(
+            "Number of movies with missing release date:",
+            df["Movie release date"].isna().sum(),
+        )
+        print(
+            "Number of movies with missing revenue:",
+            df["Movie box office revenue"].isna().sum(),
+        )
+
         # Keep only the year from the release date
         # e.g. "2024-01-01" -> "2024"
         df["Movie release date"] = df["Movie release date"].astype(str).str[:4]
-
-        df.rename(columns={"Wikipedia movie ID": "wikipedia_movie_id"}, inplace=True)
 
         # Fix outlier movie release date
         df["Movie release date"] = df["Movie release date"].replace("1010", "2010")
 
         # Remove movies outside the 1910-2012 range
         df = df[
-            (pd.to_numeric(df['Movie release date'], errors='coerce') >= 1910) &
-            (pd.to_numeric(df['Movie release date'], errors='coerce') <= 2012)
+            (pd.to_numeric(df["Movie release date"], errors="coerce") >= 1910)
+            & (pd.to_numeric(df["Movie release date"], errors="coerce") <= 2012)
         ]
+
         # Drop movie runtime column
         df.drop(columns=["Movie runtime"], inplace=True)
 
@@ -176,8 +214,12 @@ class DataLoader:
                     else None,
                     "character_name": lambda x: ", ".join(x[~x.isna()].astype(str)),
                     "actor_gender": lambda x: ", ".join(x[~x.isna()].astype(str)),
-                    "actor_height_meters": lambda x: ", ".join(x[~x.isna()].astype(str)),
-                    "actor_age_at_release": lambda x: ", ".join(x[~x.isna()].astype(str)), 
+                    "actor_height_meters": lambda x: ", ".join(
+                        x[~x.isna()].astype(str)
+                    ),
+                    "actor_age_at_release": lambda x: ", ".join(
+                        x[~x.isna()].astype(str)
+                    ),
                     "ethnicity": lambda x: ", ".join(x[~x.isna()].astype(str)),
                 }
             )
