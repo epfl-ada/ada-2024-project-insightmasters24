@@ -51,3 +51,12 @@ Interestingly, a somewhat thought-provoking trend can be observed in the 1990s, 
 Another amusing trend appears to be the popularity of movies showcasing the LGBTQ+ community by the end of the 20th century. While LGBTQ+ representation remained controversial at the time (as one can notice during the AIDS/HIV crisis between 1980 and 1990), there was however growing advocacy for visibility and rights. From our model, we can thus infer that this societal shift and progress in cultural values has opened the door for movies that explored LGBTQ+ themes to gain wider acceptance and curiosity.
 
 
+## Local URLs in project sites {#local-urls}
+
+When hosting a *project site* on GitHub Pages (for example, `https://USERNAME.github.io/MyProject`), URLs that begin with `/` and refer to local files may not work correctly due to how the root URL (`/`) is interpreted by GitHub Pages. You can read more about it [in the FAQ](https://beautifuljekyll.com/faq/#links-in-project-page). To demonstrate the issue, the following local image will be broken **if your site is a project site:**
+
+![Crepe](/assets/img/crepe.jpg)
+
+If the above image is broken, then you'll need to follow the instructions [in the FAQ](https://beautifuljekyll.com/faq/#links-in-project-page). Here is proof that it can be fixed:
+
+![Crepe]({{ '/assets/img/crepe.jpg' | relative_url }})
