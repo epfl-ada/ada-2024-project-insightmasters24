@@ -20,7 +20,7 @@ time: 2025
 # --- List of links in the navigation bar --- #
 ###############################################
 
-navbar-links:
+# navbar-links:
   # About Me: "aboutme"
   # Resources:
   #   - Beautiful Jekyll: "https://beautifuljekyll.com"
