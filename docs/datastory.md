@@ -51,4 +51,4 @@ Interestingly, a somewhat thought-provoking trend can be observed in the 1990s, 
 Another amusing trend appears to be the popularity of movies showcasing the LGBTQ+ community by the end of the 20th century. While LGBTQ+ representation remained controversial at the time (as one can notice during the AIDS/HIV crisis between 1980 and 1990), there was however growing advocacy for visibility and rights. From our model, we can thus infer that this societal shift and progress in cultural values has opened the door for movies that explored LGBTQ+ themes to gain wider acceptance and curiosity.
 
 
-![Gender distribution](/assets/img/plots/gender_distribution.html)
+![Gender distribution](/assets/img/plots/gender-distribution-pie.png)
