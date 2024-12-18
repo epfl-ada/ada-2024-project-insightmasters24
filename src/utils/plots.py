@@ -545,3 +545,16 @@ def plot_mean_revenue_by_f_ratio(df):
     plt.legend(fontsize=12, loc='upper left', frameon=False)
     plt.tight_layout()
     plt.show()
+
+
+def plot_avg_ethnic_score_per_period(df):
+    # Calculate the average ethnic score per period
+    average_ethnic_score_per_period = df.groupby('period')['ethnic_score'].mean()
+
+    # Plot the average ethnic score per period
+    plt.figure(figsize=(12, 6))
+    average_ethnic_score_per_period.plot(kind='bar')
+    plt.title('Average Ethnic Score per Period')
+    plt.xlabel('Period')
+    plt.ylabel('Average Ethnic Score')
+    plt.show()

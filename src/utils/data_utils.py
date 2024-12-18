@@ -2,7 +2,6 @@ import pandas as pd
 from concurrent.futures import ThreadPoolExecutor
 import requests
 
-# americans by north americans
 ethnicity_mapping = {
     "African Ethnicities": [
         "ethnicity_African Americans", "ethnicity_African people", "ethnicity_Afro-Asians",
