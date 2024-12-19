@@ -30,7 +30,19 @@ def save_fig_to_html(func):
 
 
 # List of LGBTQ+ related terms
-lgbtq_terms = ['gay', 'lesbian', 'homosexual', 'homosexuality', 'bisexual', 'transgender', 'queer', 'trans', 'transsexual', 'transvestite', 'transvestism']
+lgbtq_terms = [
+    "gay",
+    "lesbian",
+    "homosexual",
+    "homosexuality",
+    "bisexual",
+    "transgender",
+    "queer",
+    "trans",
+    "transsexual",
+    "transvestite",
+    "transvestism",
+]
 
 
 def plot_gender_proportions(df):
@@ -56,14 +68,16 @@ def plot_gender_proportions(df):
     plt.title("Gender Proportions of Actors Over Time")
     plt.xlabel("Year")
     plt.ylabel("Proportion")
-    plt.legend(title="Gender", loc='upper right')
+    plt.legend(title="Gender", loc="upper right")
     plt.grid(True, alpha=0.3)
     plt.xticks(rotation=45)
     plt.tight_layout()
     plt.show()
 
+
 def plot_age_proportions(df):
     """Plot the age distribution of actors over time"""
+
     # Create age groups
     def categorize_age(age):
         if pd.isna(age):
@@ -116,8 +130,10 @@ def plot_age_proportions(df):
     plt.tight_layout()
     plt.show()
 
+
 def plot_age_proportions_by_gender(df: pd.DataFrame):
     """Plot the age distribution of actors over time by gender"""
+
     # Create age groups
     def categorize_age(age):
         if pd.isna(age):
@@ -181,28 +197,33 @@ def plot_age_proportions_by_gender(df: pd.DataFrame):
     plt.tight_layout()
     plt.show()
 
+
 def plot_top_languages(df):
     """Plot the top 20 movie released languages"""
-    language_counts = (
-        df["Movie languages"].str.split(", ").explode().value_counts()
-    )
+    language_counts = df["Movie languages"].str.split(", ").explode().value_counts()
     # remove the languages with less than 2 character
     language_counts = language_counts[language_counts.index.str.len() > 1]
     plt.figure(figsize=(15, 6))
-    language_counts[:20].plot(kind="bar", title="Top 20 languages", ylabel="Count", alpha=0.75)
+    language_counts[:20].plot(
+        kind="bar", title="Top 20 languages", ylabel="Count", alpha=0.75
+    )
     plt.show()
+
 
 def plot_top_genres(df):
     """Plot the top 20 movie genres of our entire dataset"""
-    genre_counts = (
-        df["Movie genres"].str.split(", ").explode().value_counts()
-    )
+    genre_counts = df["Movie genres"].str.split(", ").explode().value_counts()
 
     plt.figure(figsize=(15, 6))
     genre_counts[:20].plot(
-        kind="bar", title="Top 20 genres", ylabel="Count", xlabel="Movie Genre", alpha=0.75
+        kind="bar",
+        title="Top 20 genres",
+        ylabel="Count",
+        xlabel="Movie Genre",
+        alpha=0.75,
     )
     plt.show()
+
 
 def plot_movies_by_year(df):
     """Plot the number of movies in the last 50 years"""
@@ -213,7 +234,7 @@ def plot_movies_by_year(df):
     plt.figure(figsize=(20, 6))
     year_counts[:50].plot(
         kind="bar",
-        title="Number of movies in last 50 years", 
+        title="Number of movies in last 50 years",
         ylabel="Count",
         xlabel="Year",
         alpha=0.75,
@@ -273,8 +294,7 @@ def plot_top_genres_by_year(df):
     for year in recent_years:
         # Get movies in the year
         movies_in_year = df[
-            pd.to_numeric(df["Movie release date"], errors="coerce")
-            == year
+            pd.to_numeric(df["Movie release date"], errors="coerce") == year
         ]
 
         # Count the genres for movies in this year
@@ -304,6 +324,7 @@ def plot_top_genres_by_year(df):
     plt.tight_layout()
     plt.show()
 
+
 def plot_mean_revenue_per_year(df):
     """Plot the mean movie box office revenue per year"""
     mean_revenue_per_year = df.groupby("Movie release date")[
@@ -330,124 +351,147 @@ def plot_mean_revenue_per_year(df):
     plt.xticks(rotation=45)
     plt.show()
 
+
 def plot_ethnicity_proportions(df):
     """Plot the ethnicity distribtution of actors in our dataset"""
     # Plot the ethnicities proportions
-    ethnicity_counts = (
-        df["ethnicity"].str.split(", ").explode().value_counts()
-    )
+    ethnicity_counts = df["ethnicity"].str.split(", ").explode().value_counts()
 
     # Count the non nan values and get top 8
     ethnicity_counts = ethnicity_counts[ethnicity_counts.index != "nan"]
     top_10_ethnicities = ethnicity_counts[1:9]
-    others = pd.Series({'Others': ethnicity_counts[8:].sum()})
+    others = pd.Series({"Others": ethnicity_counts[8:].sum()})
     ethnicity_counts_final = pd.concat([top_10_ethnicities, others])
 
-    ethnicity_counts_final.plot(kind="pie", autopct='%1.1f%%')
+    ethnicity_counts_final.plot(kind="pie", autopct="%1.1f%%")
     plt.title("Ethnicity Proportions (Top 8 + Others)")
     plt.show()
+
 
 def plot_lgbtq_movies_per_year(df):
     """Plot the total number of movies with LGBTQ+ related themes per year considering mentions in plot summaries and genres"""
     # Create boolean masks for plots and genres containing LGBTQ+ terms
-    lgbtq_mentions = df['plot'].str.lower().str.contains('|'.join(lgbtq_terms), na=False)
-    lgbtq_genres = df['Movie genres'].str.lower().str.contains('lgbt', na=False)
-    
+    lgbtq_mentions = (
+        df["plot"].str.lower().str.contains("|".join(lgbtq_terms), na=False)
+    )
+    lgbtq_genres = df["Movie genres"].str.lower().str.contains("lgbt", na=False)
+
     # Combine masks to find movies with either LGBTQ+ mentions in plot or genres
     lgbtq_movies = lgbtq_mentions | lgbtq_genres
 
     # Group by year and count occurrences, excluding 'nan' years
-    lgbtq_counts = df[lgbtq_movies].groupby('Movie release date').size()
-    lgbtq_counts = lgbtq_counts[lgbtq_counts.index != 'nan']
+    lgbtq_counts = df[lgbtq_movies].groupby("Movie release date").size()
+    lgbtq_counts = lgbtq_counts[lgbtq_counts.index != "nan"]
 
     plt.figure(figsize=(25, 7))
-    plt.plot(lgbtq_counts.index, lgbtq_counts.values, color='purple', marker='o', markersize=8)
-    plt.title('Number of Movies with LGBTQ+ Themes (Plot Mentions or Genres) Per Year')
-    plt.xlabel('Year')
-    plt.ylabel('Count')
+    plt.plot(
+        lgbtq_counts.index,
+        lgbtq_counts.values,
+        color="purple",
+        marker="o",
+        markersize=8,
+    )
+    plt.title("Number of Movies with LGBTQ+ Themes (Plot Mentions or Genres) Per Year")
+    plt.xlabel("Year")
+    plt.ylabel("Count")
     plt.grid(True)
     plt.xticks(rotation=45)
     plt.show()
+
 
 def plot_lgbtq_movies_percentage_per_period(df):
     """Plot the proportion of movies with LGBTQ+ related themes per year with respect to the total number of movies released per year"""
 
     # Convert years to 5-year periods for smoothing
-    df['Period'] = pd.to_numeric(df['Movie release date'], errors='coerce') // 5 * 5
+    df["Period"] = pd.to_numeric(df["Movie release date"], errors="coerce") // 5 * 5
 
     # Create boolean masks for plots and genres containing LGBTQ+ terms
-    lgbtq_mentions = df['plot'].str.lower().str.contains('|'.join(lgbtq_terms), na=False)
-    lgbtq_genres = df['Movie genres'].str.lower().str.contains('lgbt', na=False)
-    
+    lgbtq_mentions = (
+        df["plot"].str.lower().str.contains("|".join(lgbtq_terms), na=False)
+    )
+    lgbtq_genres = df["Movie genres"].str.lower().str.contains("lgbt", na=False)
+
     # Combine masks to find movies with either LGBTQ+ mentions in plot or genres
     lgbtq_movies = lgbtq_mentions | lgbtq_genres
 
     # Calculate percentage of LGBTQ+ movies per 5-year period
-    lgbtq_counts = df[lgbtq_movies].groupby('Period').size()
-    movies_per_period = df.groupby('Period').size()
+    lgbtq_counts = df[lgbtq_movies].groupby("Period").size()
+    movies_per_period = df.groupby("Period").size()
     lgbtq_percentage = (lgbtq_counts / movies_per_period * 100).dropna()
 
     plt.figure(figsize=(25, 7))
-    plt.plot(lgbtq_percentage.index, lgbtq_percentage.values, color='purple', marker='o', markersize=8)
-    plt.title('Mean Percentage of Movies with LGBTQ+ Themes Per 5-Year Period')
-    plt.xlabel('Year')
-    plt.ylabel('Percentage of Movies')
+    plt.plot(
+        lgbtq_percentage.index,
+        lgbtq_percentage.values,
+        color="purple",
+        marker="o",
+        markersize=8,
+    )
+    plt.title("Mean Percentage of Movies with LGBTQ+ Themes Per 5-Year Period")
+    plt.xlabel("Year")
+    plt.ylabel("Percentage of Movies")
     plt.grid(True)
     plt.xticks(rotation=45)
     plt.show()
 
+
 def create_feature_matrix(df):
     """Create a feature matrix from the dataframe"""
     # Create gender representation difference feature (M-F) for each movie
-    gender_splits = df['actor_gender'].str.split(', ').apply(lambda x: 
-        pd.Series([
-            len([g for g in x if g == 'M']),
-            len([g for g in x if g == 'F'])
-        ])
+    gender_splits = (
+        df["actor_gender"]
+        .str.split(", ")
+        .apply(
+            lambda x: pd.Series(
+                [len([g for g in x if g == "M"]), len([g for g in x if g == "F"])]
+            )
+        )
     )
     gender_difference = gender_splits[0] - gender_splits[1]
-    
+
     # Get top 5 ethnicities
     top_ethnicities = (
-        df['ethnicity'].str.split(', ')
-        .explode()
-        .value_counts()
-        .iloc[1:6]
-        .index
+        df["ethnicity"].str.split(", ").explode().value_counts().iloc[1:6].index
     )
-    
+
     # Create dummy variables for top 5 ethnicities only
     ethnicity_dummies = (
-        df['ethnicity'].str.get_dummies(sep=', ')
+        df["ethnicity"]
+        .str.get_dummies(sep=", ")
         .reindex(columns=top_ethnicities, fill_value=0)
     )
-    
+
     # Create dummy variables for genres
     top_5_genres = (
-        df['Movie genres'].str.split(", ")
-        .explode()
-        .value_counts()
-        .head(5)
-        .index
+        df["Movie genres"].str.split(", ").explode().value_counts().head(5).index
     )
-    
+
     # Create dummy variables for only top 5 genres
     genre_dummies = (
-        df['Movie genres'].str.get_dummies(sep=', ')
+        df["Movie genres"]
+        .str.get_dummies(sep=", ")
         .reindex(columns=top_5_genres, fill_value=0)
     )
-        
+
     # Combine all features
-    feature_matrix = pd.concat([
-        pd.DataFrame({
-            'revenue': df['Movie box office revenue'],
-            'release_year': pd.to_numeric(df['Movie release date'], errors='coerce'),
-            'gender_difference': gender_difference
-        }),
-        genre_dummies,
-        ethnicity_dummies
-    ], axis=1)
+    feature_matrix = pd.concat(
+        [
+            pd.DataFrame(
+                {
+                    "revenue": df["Movie box office revenue"],
+                    "release_year": pd.to_numeric(
+                        df["Movie release date"], errors="coerce"
+                    ),
+                    "gender_difference": gender_difference,
+                }
+            ),
+            genre_dummies,
+            ethnicity_dummies,
+        ],
+        axis=1,
+    )
     return feature_matrix
+
 
 def plot_correlation_matrix(df):
     """Plot the correlation matrix of the feature matrix"""
@@ -458,19 +502,21 @@ def plot_correlation_matrix(df):
     correlation_matrix = feature_matrix.corr()
 
     # Plot heatmap and showing the correlation coefficients
-    sns.heatmap(correlation_matrix, 
-                cmap='coolwarm', 
-                center=0,
-                annot=True,  
-                fmt='.2f',
-                square=True)
+    sns.heatmap(
+        correlation_matrix,
+        cmap="coolwarm",
+        center=0,
+        annot=True,
+        fmt=".2f",
+        square=True,
+    )
 
-    plt.title('Correlation Matrix of Movie Features')
+    plt.title("Correlation Matrix of Movie Features")
     plt.tight_layout()
     plt.show()
 
     # Printing the top correlations with revenue
-    revenue_correlations = correlation_matrix['revenue'].sort_values(ascending=False)
+    revenue_correlations = correlation_matrix["revenue"].sort_values(ascending=False)
     print("\nTop 5 positive correlations with revenue:")
     print(revenue_correlations.head(5))
     print("\nTop 5 negative correlations with revenue:")
