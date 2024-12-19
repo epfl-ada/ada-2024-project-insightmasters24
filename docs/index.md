@@ -54,7 +54,7 @@ Alright, let’s get serious for a moment. Your concern is completely valid: by 
 
 ![Average Movie Revenue per Year](/assets/img/plots/Movie-revenue-per-year.png)
 
-<iframe src="assets/plots/plot_mean_revenue_per_year.html" width="70%%" height="100px" style="border:none;"></iframe>
+<iframe src="assets/plots/plot_mean_revenue_per_year.html" width="50%" height="300px" style="border:none;"></iframe>
 
 While such an increase can be explained by democratization of cinema over the years, time value of money also plays an important role. In fact, we estimate that $100 in the early 1900’s corresponds to a purchasing power of nearly $3800 today!
 
@@ -339,4 +339,6 @@ And that’s a wrap! This exploration of cinema’s evolution shows us that movi
 
 The data reveals an industry that is slowly but surely adapting and learning. From the early days of predictable archetypes to today’s push for fresh, authentic narratives with greater diversity, cinema is growing alongside society. While the progress is encouraging, there’s still so much more to explore and achieve.
 
-At their heart, movies are about storytelling—about helping us connect with who we are and envision who we might become. With greater representation, more people are beginning to see themselves reflected in the heroes on screen, making those stories feel deeply personal and impactful. As audiences continue to embrace these characters and narratives, the future of cinema is full of potential, driven by the limitless creativity of filmmakers and the courage to bring every story to life.
+At their heart, movies are about storytelling—about helping us connect with who we are and envision who we might become. With greater representation, more people are beginning to see themselves reflected in the heroes on screen, making those stories feel deeply personal and impactful. As audiences continue to embrace these characters and narratives, the future of cinema is full of potential, driven by the limitless creativity of filmmakers and the courage to bring every story to life.     
+
+
