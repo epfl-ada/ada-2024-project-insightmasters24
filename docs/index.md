@@ -119,7 +119,7 @@ The plots below showcase the top 5 most influential features with a positive eff
 
 #### Movie Genre trending success across time  
 
-![Genre trends](/assets/img/plots/Genres-regression.png)
+![Genre trends](/assets/img/plots/Genres-regression.jpg)
 
 Notice some trends? Well, we do! In fact, while science fiction,adventure and romance movies seem to have gained long-lasting popularity in recent years, new themes have also stood out and grown in popularity during specific time frames.
 
@@ -129,7 +129,7 @@ Another amusing trend appears to be the popularity of movies showcasing the LGBT
 
 #### Preferred character archetype and main actor physical features evolution across time  
 
-![Character trends](/assets/img/plots/Character-reg-1.png)
+![Character trends](/assets/img/plots/Character-reg-1.jpg)
 
 As for main characters' features, we can notice that successful movies tend to star more actors from jewish communities since 2005. While this may be due to the performance of some very talented jewish actors starring in movies that thus generated large revenue (ie. there might be reverse causality in the model), this also indicates that the public is more open to Jewish representation in movies.  
 
@@ -143,9 +143,9 @@ Finally, we can see here and there that the representation of characters from la
 
 Running this time the same regressions with the ethnic score (computed as the number of ethnicities represented in movies) instead of each ethnicity represented as a feature, we get very interesting results : 
 
-![Character trends 2](/assets/img/plots/Character-reg-2.png)
+![Character trends 2](/assets/img/plots/Character-reg-2.jpg)
 
-Nothing strikes you immediately? Between 1995 and 1999, and after 2010, the higher the ethnic score, the higher is expected the revenue of a movie! This result completely aligns with the McKinsey study discussed earlier, you know, the one about the influence of ethnicity on movie revenue! Perhaps those McKinsey consultants are former ADA students…
+Nothing strikes you immediately? Since 1995, movies with higher the ethnic score  tend to expect higher box office revenue! This result completely aligns with the McKinsey study discussed earlier, you know, the one about the influence of ethnicity on movie revenue! Perhaps those McKinsey consultants are former ADA students…
 
 In any case, there is a reason why the effect of ethnic representation on the revenue is so strong : movies displaying more ethnicities are better received by the public, as they probably appeal to a wider audience! This clearly shows that society is evolving to embrace and celebrate a broader range of cultures and ethnicities, reflecting a growing demand for stories that resonate with diverse audiences.
 
