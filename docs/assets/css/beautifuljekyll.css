@@ -1129,7 +1129,8 @@ pre {
   top: 50%; /* Adjust this value to center it vertically/
  transform: translateY(-50%); /* This will center it by moving it up by half of its height */
  height: auto; /* Ensure the height is auto to accommodate content */
- padding-top: 90px;
+ padding-top: 50px; /* Adjust this value as needed */
+ padding-bottom: 50px; /* Adjust this value as needed */
  background-color: var(--navbar-col);
  margin-top: 3.125rem; /* You can adjust this if needed */
 }
