@@ -1123,3 +1123,23 @@ pre {
     display: inline-block;
   }
 }
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 1rem;
+  background-color: var(--navbar-col);
+}
+
+.sidebar h5 {
+  font-weight: bold;
+}
+
+.sidebar .nav-link {
+  color: var(--navbar-text-col);
+}
+
+.sidebar .nav-link:hover {
+  color: var(--hover-col);
+}
