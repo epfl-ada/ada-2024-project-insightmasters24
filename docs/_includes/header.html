@@ -16,8 +16,7 @@
   ></div>
 {% endif %}
 
-<header class="header-section {% if page.cover-img %}has-img{% endif %}" style="position: relative; background-image: url('{{ page.cover-img | first | absolute_url }}');">
-  <div class="overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5);"></div>
+<header class="header-section {% if page.cover-img %}has-img{% endif %}" style="background-image: url('{{ page.cover-img | first | absolute_url }}');">
   <div class="intro-header {% if page.cover-img %} big-img {% endif %}">
     {% if page.cover-img or page.title %}
     <div class="container-md">
