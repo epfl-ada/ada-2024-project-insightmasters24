@@ -13,6 +13,18 @@ subtitle: Analyzing diversity trends in the film industry
 cover-img: "/assets/img/images/header2.png"
 ---
 
+# Section 1 {#section1}
+
+Content for section 1...
+
+# Section 2 {#section2}
+
+Content for section 2...
+
+# Section 3 {#section3}
+
+Content for section 3...
+
 # Motivation
 
 The evolution of gender, ethnic and other apparent physical features representation in cinema serves as a lens reflecting societal values and cultural shifts over decades. In this project, we seek to explore these dynamics by analyzing the physical characteristics of main actors—gender, ethnicity, sexual orientation, height, and age—across decades and genres, using the CMU movie summary corpus as our main data source. Together, we will investigate how specific archetypes emerge, evolve, and influence genre conventions and movie revenues, shedding light on diversity’s role in shaping audience engagement and the movie industry in general.  
