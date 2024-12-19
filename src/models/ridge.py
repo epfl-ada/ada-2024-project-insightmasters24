@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
-def ridge_regression1(df, show_details=False):
+def ridge_regression_characters_general(df, show_details=False):
     period_counts = df['period'].value_counts().sort_index()
 
     # Print periods with more than 500 movies
@@ -109,7 +109,7 @@ def ridge_regression1(df, show_details=False):
         print(period_counts[valid_periods])
     return features_of_interest
 
-def plot_most_important_features_generated_by_ridge_regression(features_of_interest):
+def plot_important_features_only_considering_ethnic_score(features_of_interest):
     # Create DataFrames for character and genre features
     character_df = pd.DataFrame()
     genre_df = pd.DataFrame()
@@ -179,13 +179,16 @@ def plot_most_important_features_generated_by_ridge_regression(features_of_inter
     ax2.set_ylabel("Coefficient Value", fontsize=16)
     ax2.tick_params(axis='x', rotation=0, labelsize=16)
     ax2.tick_params(axis='y', labelsize=16)
-    legend = ax2.legend(title="Genre Features", bbox_to_anchor=(1.0, 1), fontsize=14, title_fontsize=16)
+    legend = ax2.legend(title="Genre Features", bbox_to_anchor=(1.2, 1), fontsize=14, title_fontsize=16)
 
     plt.tight_layout()
     plt.show()
 
-def ridge_regression2(df, show_details=False):
+def ridge_regression_characters(df, show_details=False):
     period_counts = df['period'].value_counts().sort_index()
+
+    #drop ethnic score
+    df = df.drop(["ethnic_score"], axis=1)
 
     # Print periods with more than 500 movies
     valid_periods = period_counts[period_counts > 500].index
@@ -282,7 +285,7 @@ def ridge_regression2(df, show_details=False):
         print(period_counts[valid_periods])
     return features_of_interest
 
-def plot_most_important_features_generated_by_ridge_regression_only_considering_ethnic_score(features_of_interest):
+def plot_important_features(features_of_interest):
     # Create DataFrames for character and genre features
     character_df = pd.DataFrame()
     genre_df = pd.DataFrame()

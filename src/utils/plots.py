@@ -6,7 +6,6 @@ import numpy as np
 # List of LGBTQ+ related terms
 lgbtq_terms = ['gay', 'lesbian', 'homosexual', 'homosexuality', 'bisexual', 'transgender', 'queer', 'trans', 'transsexual', 'transvestite', 'transvestism']
 
-
 def plot_gender_proportions(df):
     """Plot the gender proportions of actors over time"""
     # Split the comma-separated gender values and explode them into separate rows
@@ -201,12 +200,16 @@ def plot_gender_distribution(df):
         df["actor_gender"].str.split(", ").explode().value_counts()
     )
 
-    plt.figure(figsize=(8, 6))
-    gender_counts[["F", "M"]].plot(kind="bar", color=["pink", "blue"])
-    plt.title("Number of Female vs Male Actors")
-    plt.xlabel("Gender")
-    plt.ylabel("Number of Actors")
-    plt.xticks(rotation=0)
+    # Pie chart
+    plt.figure(figsize=(5, 5))
+    plt.pie(
+        gender_counts[["F", "M"]],
+        labels=["Female", "Male"],
+        colors=["pink", "blue"],
+        autopct='%1.1f%%',
+        startangle=90
+    )
+    plt.title("Distribution of Female vs Male Actors")
     plt.show()
 
 def plot_top_genres_by_year(df):
@@ -246,7 +249,7 @@ def plot_top_genres_by_year(df):
     top_genres_per_year = top_genres_per_year.T.fillna(0)
 
     # Plotting the top 3 genres per year for the last 10 years
-    plt.figure(figsize=(15, 8))
+    # plt.figure(figsize=(15, 8))
     top_genres_per_year.plot(kind="bar", stacked=True, figsize=(15, 8), width=0.8)
     plt.title("Top 5 Movie Genres Per Year")
     plt.xlabel("Year")
@@ -431,6 +434,7 @@ def plot_correlation_matrix(df):
     print(revenue_correlations.tail(5))
 
 def plot_ethnicity_and_genre_influence_on_revenue(df):
+    """Plot the influence of ethnicity and genre on movie revenue"""
     ethnicities = {
         "European": ["Western European Ethnicities", "Northern European Ethnicities", 
                      "Southern European Ethnicities", "Eastern European Ethnicities"],
@@ -505,6 +509,7 @@ def plot_ethnicity_and_genre_influence_on_revenue(df):
     plt.show()
 
 def plot_mean_revenue_by_f_ratio(df):
+    """Plot the mean box office revenue per F ratio interval with error bars"""
     # Ensure F-ratio and revenue columns exist in the DataFrame
     # Drop missing values
     df_filtered = df[['F ratio', 'Movie box office revenue']].dropna()
@@ -546,8 +551,9 @@ def plot_mean_revenue_by_f_ratio(df):
     plt.tight_layout()
     plt.show()
 
+def plot_avg_ethnic_score_evolution(df):
+    """Plot the average ethnic score per period"""
 
-def plot_avg_ethnic_score_per_period(df):
     # Calculate the average ethnic score per period
     average_ethnic_score_per_period = df.groupby('period')['ethnic_score'].mean()
 
@@ -558,3 +564,190 @@ def plot_avg_ethnic_score_per_period(df):
     plt.xlabel('Period')
     plt.ylabel('Average Ethnic Score')
     plt.show()
+
+def plot_female_ratio_distribution(df):
+    """
+    Creates a bar plot showing the distribution of female actor ratios over time periods.
+    
+    Parameters:
+    df (pandas.DataFrame): DataFrame containing 'Movie release date' and 'F ratio' columns
+    
+    Returns:
+    None (displays plot and prints percentages)
+    """
+    df['period'] = pd.to_datetime(df['Movie release date'], format='%Y').dt.year.apply(
+        lambda x: f"{(x//5)*5}-{(x//5)*5+4}"
+    )
+
+    period_f_ratios = df.groupby('period')['F ratio'].mean() * 100  
+
+    # Select only the periods we're interested in
+    periods_of_interest = ['1985-1989', '1990-1994', '1995-1999', '2000-2004', '2005-2009', '2010-2014']
+    f_ratios = period_f_ratios[periods_of_interest]
+
+    # Plot with Seaborn for better aesthetics
+    sns.set_theme(style="whitegrid")
+    plt.figure(figsize=(10, 6))
+    sns.barplot(
+        x=f_ratios.values, 
+        y=f_ratios.index, 
+        hue=f_ratios.index,  # Set hue to the y variable
+        palette="coolwarm", 
+        dodge=False,
+        legend=False
+    )
+
+    # Add plot details
+    plt.title('Average Percentage of Female Actors by Period', fontsize=16)
+    plt.xlabel('Percentage of Female Actors (%)', fontsize=12)
+    plt.ylabel('Period', fontsize=12)
+    for index, value in enumerate(f_ratios.values):
+        plt.text(value + 0.5, index, f"{value:.1f}%", va='center', fontsize=10)
+
+    plt.tight_layout()
+    plt.show()
+
+def plot_female_ratio_heatmap(df):
+    """
+    Creates a heatmap showing the percentage of female actors across different periods and genres.
+    
+    Parameters:
+    df (pandas.DataFrame): DataFrame containing 'Movie release date', 'F ratio' and genre columns
+    
+    Returns:
+    None (displays heatmap and prints averages)
+    """
+    genres = df.columns[df.columns.get_loc('Action'):df.columns.get_loc('Erotic and Adult')+1].tolist()
+    
+    # Define periods of interest
+    periods_of_interest = ['1985-1989', '1990-1994', '1995-1999', '2000-2004', '2005-2009', '2010-2014']
+
+    heatmap_data = []
+
+    # For each period and genre, we calculate average F ratio for movies of that genre
+    for period in periods_of_interest:
+        period_data = df[df['period'] == period]
+        row_data = []
+        for genre in genres:
+            genre_movies = period_data[period_data[genre] == 1]
+            if len(genre_movies) > 0:
+                f_ratio = genre_movies['F ratio'].mean() * 100
+                row_data.append(f_ratio)
+            else:
+                row_data.append(0)
+        heatmap_data.append(row_data)
+
+    heatmap_df = pd.DataFrame(heatmap_data, 
+                             index=periods_of_interest,
+                             columns=genres)
+
+    plt.figure(figsize=(15, 8))
+    sns.heatmap(heatmap_df, 
+                annot=True,  
+                fmt='.1f',   
+                cmap='RdYlBu_r',  
+                center=30,    
+                vmin=0,      
+                vmax=60)     
+
+    plt.title('Percentage of Female Actors by Period and Genre')
+    plt.xlabel('Genre')
+    plt.ylabel('Period')
+    plt.xticks(rotation=45, ha='right')
+    plt.tight_layout()
+
+def plot_male_ratio_heatmap(df):
+    """
+    Creates a heatmap showing the percentage of male actors across different periods and genres.
+    
+    Parameters:
+    df (pandas.DataFrame): DataFrame containing 'Movie release date', 'F ratio' and genre columns
+    
+    Returns:
+    None (displays heatmap and prints averages)
+    """
+    genres = df.columns[df.columns.get_loc('Action'):df.columns.get_loc('Erotic and Adult')+1].tolist()
+    
+    # Define periods of interest
+    periods_of_interest = ['1985-1989', '1990-1994', '1995-1999', '2000-2004', '2005-2009', '2010-2014']
+
+    heatmap_data = []
+
+    # For each period and genre, calculate average male proportion (1 - F ratio) for movies of that genre
+    for period in periods_of_interest:
+        period_data = df[df['period'] == period]
+        row_data = []
+        for genre in genres:
+            genre_movies = period_data[period_data[genre] == 1]
+            if len(genre_movies) > 0:
+                m_ratio = (1 - genre_movies['F ratio']).mean() * 100 
+                row_data.append(m_ratio)
+            else:
+                row_data.append(0)
+        heatmap_data.append(row_data)
+
+    heatmap_df = pd.DataFrame(heatmap_data, 
+                             index=periods_of_interest,
+                             columns=genres)
+
+    plt.figure(figsize=(15, 8))
+    sns.heatmap(heatmap_df, 
+                annot=True,  
+                fmt='.1f',   
+                cmap='RdYlBu',  
+                center=50,   
+                vmin=40,     
+                vmax=100)    
+    plt.title('Percentage of Male Actors by Period and Genre')
+    plt.xlabel('Genre')
+    plt.ylabel('Period')
+    plt.xticks(rotation=45, ha='right')
+    plt.tight_layout()
+
+def plot_ethnic_score_heatmap(df):
+    """
+    Creates a heatmap showing the average ethnic score across different periods and genres.
+    
+    Parameters:
+    df (pandas.DataFrame): DataFrame containing 'Movie release date', 'ethnic_score' and genre columns
+    
+    Returns:
+    None (displays heatmap and prints averages)
+    """
+    genres = df.columns[df.columns.get_loc('Action'):df.columns.get_loc('Erotic and Adult')+1].tolist()
+    
+    # Define periods of interest
+    periods_of_interest = ['1985-1989', '1990-1994', '1995-1999', '2000-2004', '2005-2009', '2010-2014']
+
+    heatmap_data = []
+
+    # For each period and genre, calculate average ethnic_score for movies of that genre
+    for period in periods_of_interest:
+        period_data = df[df['period'] == period]
+        row_data = []
+        for genre in genres:
+            genre_movies = period_data[period_data[genre] == 1]
+            if len(genre_movies) > 0:
+                avg_score = genre_movies['ethnic_score'].mean()
+                row_data.append(avg_score)
+            else:
+                row_data.append(0)
+        heatmap_data.append(row_data)
+
+    heatmap_df = pd.DataFrame(heatmap_data, 
+                             index=periods_of_interest,
+                             columns=genres)
+
+    plt.figure(figsize=(15, 8))
+    sns.heatmap(heatmap_df, 
+                annot=True,  
+                fmt='.1f',   
+                cmap='YlOrRd',  
+                center=None,    
+                vmin=0)    
+
+    plt.title('Average Ethnic Score by Period and Genre')
+    plt.xlabel('Genre')
+    plt.ylabel('Period')
+    plt.xticks(rotation=45, ha='right')
+    plt.tight_layout()

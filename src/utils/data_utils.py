@@ -248,6 +248,16 @@ def get_revenue(wikidata_id):
         return None
 
 def update_movie_revenue(movie_df):
+    """Update the movie revenue using the Wikidata API"""
+    # Print the number of movies with revenue before Wikidata scraping
+    print(
+        "Number of movies with revenue before Wikidata scraping: ",
+        len(
+            movie_df[
+                movie_df["Movie box office revenue"].notna()
+            ]
+        ),
+    )
     print("Processing")
     """Update the movie revenue for movies having a missing revenue"""
     def process_row(index, row):
@@ -273,9 +283,19 @@ def update_movie_revenue(movie_df):
             index, revenue = future.result()
             movie_df.at[index, "Movie box office revenue"] = revenue
 
+    # Print the number of movies with revenue after Wikidata scraping
+    print(
+        "Number of movies with revenue after Wikidata scraping: ",
+        len(
+            movie_df[
+                movie_df["Movie box office revenue"].notna()
+            ]
+        ),
+    )
     return movie_df
 
 def reduce_genres_and_ethnicities(df, genre_mapping=genre_mapping, ethnicity_mapping=ethnicity_mapping):
+    """Reduce the number of genres and ethnicities columns in the DataFrame using a mapping dictionary to more general categories"""
     df = create_dummies_from_list_column(df, 'ethnicity')
     df = create_dummies_from_list_column(df, 'Movie genres')
     ethnicity_columns = [col for col in df.columns if col.lower().startswith('ethnicity')]
@@ -293,8 +313,6 @@ def reduce_genres_and_ethnicities(df, genre_mapping=genre_mapping, ethnicity_map
             df[category] = df[existing_columns].sum(axis=1)
             df[category] = df[category].apply(lambda x: 1 if x > 1 else x)
 
-    df['ethnic_score'] = df[ethnicity_mapping.keys()].sum(axis=1)
-
     df['Movie genres'] = df[genre_mapping.keys()].apply(
         lambda row: ', '.join([category for category in genre_mapping.keys() if row[category] == 1]), axis=1
     )
@@ -311,6 +329,7 @@ def reduce_genres_and_ethnicities(df, genre_mapping=genre_mapping, ethnicity_map
     return df
 
 def create_dummies_from_list_column(df, column_name):
+    """Create dummy variables from a column containing lists of comma separated values"""
     # Split the string entries into lists
     split_series = df[column_name].str.split(', ')
     # Create a new DataFrame with dummy variables
@@ -322,6 +341,7 @@ def create_dummies_from_list_column(df, column_name):
     return df
 
 def replace_with_min_max(df, column_name):
+    """Replace a column containing lists of comma separated values with the minimum and maximum values"""
     # Split the ages into lists, cleaning up any whitespace or invalid entries
     df[column_name] = df[column_name].str.split(', ').apply(
         lambda x: [float(age.strip()) for age in x if age.strip().replace('.', '', 1).isdigit()]
@@ -337,6 +357,26 @@ def replace_with_min_max(df, column_name):
     return df
 
 def preprocess_data_for_model(df):
+    """
+    Preprocess the dataset for machine learning by cleaning, encoding, and engineering features.
+
+    Steps:
+    1. Drop irrelevant columns (e.g., identifiers, names, plot) and rows with missing or invalid data.
+    2. One-hot encode categorical variables (`actor_gender`, `Movie genres`, `ethnicity`, etc.) and compute `F ratio`.
+    3. Filter for English-language movies produced in the USA.
+    4. Replace features (`actor_age_at_release`, `actor_height_meters`) with min-max scaled values.
+    5. Adjust actor heights relative to 160 cm.
+    6. Sort by release date and group into periods (e.g., "2000-2004").
+    7. Compute `ethnic_score` from ethnicity indicators.
+
+    Parameters:
+    ----------
+    df : Input dataframe containing movie and actor details.
+
+    Returns:
+    -------
+    Transformed dataframe ready for modeling.
+    """
     df = df.drop(["wikipedia_movie_id", "wikidata_movie_id", "Movie name", "character_name", "plot"], axis=1)
     df = df.dropna()
     df = df[df["Movie box office revenue"] != 0]
@@ -369,4 +409,8 @@ def preprocess_data_for_model(df):
     df = df.sort_values(by="Movie release date")
     df['Movie release date'] = df['Movie release date'].astype(int)
     df['period'] = df['Movie release date'].apply(lambda x: f"{x // 5 * 5}-{(x // 5 + 1) * 5 - 1}")
+    df['ethnic_score'] = df[['African Ethnicities', 'American Ethnicities', 'Asian Ethnicities', 'Eastern European Ethnicities', 'Indigenous Peoples',
+    'Jewish Communities', 'Latin American Ethnicities', 'Middle Eastern and Arab Ethnicities',
+    'Northern European Ethnicities', 'Oceanian Ethnicities', 'Southern European Ethnicities',
+   'Western European Ethnicities']].sum(axis=1)
     return df
