@@ -54,7 +54,7 @@ Alright, let’s get serious for a moment. Your concern is completely valid: by 
 
 ![Average Movie Revenue per Year](/assets/img/plots/Movie-revenue-per-year.png)
 
-<iframe src="assets/plots/gender_counts_plot.html" width="100%" height="500px" style="border:none;"></iframe>
+<iframe src="assets/plots/plot_mean_revenue_per_year.html" width="100%" height="500px" style="border:none;"></iframe>
 
 While such an increase can be explained by democratization of cinema over the years, time value of money also plays an important role. In fact, we estimate that $100 in the early 1900’s corresponds to a purchasing power of nearly $3800 today!
 
@@ -63,6 +63,8 @@ In order to account for all these effects, we chose to split our analysis into 5
 Moreover, due to data imbalance when it comes to movie release language, I decided to focus only on movies released in English (I would expect our model to fail to determine meaningful relationships between movie language and movie revenue anyways due to lack of data in some languages). WITNESS THE IMBALANCE ! 😱
 
 ![Average Movie Revenue per Year](/assets/img/plots/language-distribution-barplot.png)
+
+<iframe src="assets/plots/plot_top_languages.html" width="100%" height="500px" style="border:none;"></iframe>
 
 # Effects of Diversity on Movie Revenue {#effects-of-diversity}
 
@@ -263,6 +265,8 @@ What about the depiction of the LGBTQ+ community in the movie industry? Well, as
 
 ![LBGTQ movies](/assets/img/plots/LGBT-per-year.png)
 
+<iframe src="assets/plots/plot_lgbtq_movies_per_year.html" width="100%" height="500px" style="border:none;"></iframe>
+
 However, starting in the 1990s, there’s a clear upward trend, reflecting a growing acceptance and visibility of the LGBTQ+ community in society. This trend accelerates even further in the 2000s and 2010s, reaching its peak with over 200 movies per year (but then drastically decreasing after 2008… hmm… very suspicious).
 
 One might think that the sharp increase highlights how filmmakers and audiences alike have become more open to stories exploring LGBTQ+ themes, breaking away from years of stigma and underrepresentation. While the sudden dip at the end may indicate incomplete data or temporary fluctuation, the overall trend is a testament to the industry’s progress toward inclusivity and diversity.
@@ -274,6 +278,8 @@ BUT WAIT…. Isn’t there an issue here? What if this increase was due to more 
 Since more movies are produced over time, we need to account for this to really understand if the LGBTQ+ community depiction in movies has increased over time. Don't worry, we've got you covered! To overcome this issue, let’s analyze the mean percentage of movies covering the theme of LGBTQ+ communities instead 👍
 
 ![LBGTQ movies](/assets/img/plots/average-LGBT-per-year.png)
+
+<iframe src="assets/plots/plot_lgbtq_movies_percentage_per_period.html" width="100%" height="500px" style="border:none;"></iframe>
 
 Isn't this better? We can observe that the mean percentage of movies with LGBTQ+ themes per 5-year period has shown a steady increase over time. While the early years remained modest, with less than 1% representation before the 1920s, a notable rise began around the 1940s, followed by consistent growth throughout the second half of the century.
 
