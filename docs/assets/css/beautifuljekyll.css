@@ -1126,7 +1126,7 @@ pre {
 
 .sidebar {
   position: sticky;
-  top: 25%; /* Adjust this value to center it vertically/
+  top: 0; /* Adjust this value to center it vertically/
  transform: translateY(-50%); /* This will center it by moving it up by half of its height */
  height: auto; /* Ensure the height is auto to accommodate content */
  padding-top: 90px;
