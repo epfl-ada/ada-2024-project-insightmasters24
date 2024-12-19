@@ -239,6 +239,24 @@ def plot_gender_distribution(df):
     return fig
 
 
+@save_fig_to_html
+def plot_gender_distribution_pie(df):
+    """Plot the total distribution of female and male actors as a pie chart"""
+    # Extract the 'Actor gender' column, split it by commas, and count the occurrences of 'F' and 'M'
+    gender_counts = df["actor_gender"].str.split(", ").explode().value_counts()
+
+    plt.figure(figsize=(8, 8))
+    gender_counts[["F", "M"]].plot(
+        kind="pie",
+        colors=["#FF6B6B", "#4ECDC4"],  # Coral red and Turquoise
+        autopct="%1.1f%%",  # Show percentages with 1 decimal
+        labels=["Female", "Male"],
+    )
+    plt.title("Distribution of Female vs Male Actors")
+    plt.ylabel("")  # Remove y-label as it's not needed for pie charts
+    plt.show()
+
+
 def plot_top_genres_by_year(df):
     """Plot the top 3 movie genres for the last 10 years of our dataset"""
     # Convert 'Movie release date' to numeric without modifying the original dataset
