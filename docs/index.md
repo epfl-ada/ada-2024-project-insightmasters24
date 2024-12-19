@@ -6,9 +6,9 @@ toc:
     title: Motivation
   - id: introduction
     title: Introduction
-  - id: analysis
+  - id: A few words on our analysis
     title: A few words on our analysis
-  - id: effects-of-diversity
+  - id: Effects of Diversity on Movie Revenue
     title: Effects of Diversity on Movie Revenue
   - id: trends
     title: Evolution of Trends in the movie industry and what they reflect on society
