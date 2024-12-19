@@ -6,9 +6,9 @@ toc:
     title: Motivation
   - id: introduction
     title: Introduction
-  - id: A few words on our analysis
+  - id: analysis
     title: A few words on our analysis
-  - id: Effects of Diversity on Movie Revenue
+  - id: effects-of-diversity
     title: Effects of Diversity on Movie Revenue
   - id: trends
     title: Evolution of Trends in the movie industry and what they reflect on society
@@ -21,12 +21,12 @@ subtitle: Analyzing diversity trends in the film industry
 cover-img: "/assets/img/images/header2.png"
 ---
 
-# Motivation
+# Motivation {#motivation}
 
 The evolution of gender, ethnic and other apparent physical features representation in cinema serves as a lens reflecting societal values and cultural shifts over decades. In this project, we seek to explore these dynamics by analyzing the physical characteristics of main actors—gender, ethnicity, sexual orientation, height, and age—across decades and genres, using the CMU movie summary corpus as our main data source. Together, we will investigate how specific archetypes emerge, evolve, and influence genre conventions and movie revenues, shedding light on diversity’s role in shaping audience engagement and the movie industry in general.  
 By examining trends in character archetypes in the movie industry, we aim to identify shifts in societal norms and values, allowing us to better understand the role of cinema in mirroring and potentially driving cultural changes.
 
-# Introduction
+# Introduction {#introduction}
 
 Hello reader,  
 Do you know that 5 out of 4 people struggle with math?  
@@ -44,7 +44,7 @@ Obviously not! Fifty or sixty years ago, representation of LGBTQ+ characters, ra
 
 By using movie revenue as a metric to assess how well a movie was received by the public, we aim to analyze the archetypes of characters portrayed in successful movies, shedding light on the audience's evolving interests and preferences, and thus offering insights into how societal norms and perceptions have shifted over the years.
 
-# A few words on our analysis
+# A few words on our analysis {#analysis}
 
 You’ve probably figured it out by now: our study relies heavily on movie revenue to uncover trends. And yes, I can already hear the criticism coming from miles away: “But how can you compare movies from different eras? You need to adjust for inflation and time value of money!"
 
@@ -62,7 +62,7 @@ Moreover, due to data imbalance when it comes to movie release language, I decid
 
 ![Average Movie Revenue per Year](/assets/img/plots/language-distribution-barplot.png)
 
-# Effects of Diversity on Movie Revenue
+# Effects of Diversity on Movie Revenue {#effects-of-diversity}
 
 Before further diving into our story, here is a picture of Patagonia, Argentina :
 
