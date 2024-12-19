@@ -1131,7 +1131,7 @@ pre {
  height: auto; /* Ensure the height is auto to accommodate content */
  padding: 1rem;
  background-color: var(--navbar-col);
- margin-top: 3.125rem; /* You can adjust this if needed */
+ margin-top: 3.4rem; /* You can adjust this if needed */
 }
 
 .sidebar h5 {
