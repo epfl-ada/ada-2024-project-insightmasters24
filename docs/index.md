@@ -243,3 +243,72 @@ Over time, the movie industry has gradually shifted away from the stereotype of 
 
 What about the depiction of the LGBTQ+ community in the movie industry? Well, as you can see, there has been a notable increase in movies with LGBTQ+ themes over time. For much of the 20th century, representation was minimal, with only a handful of movies per year featuring LGBTQ+ themes or characters.
 
+![LBGTQ movies](/assets/img/plots/LGBT-per-year.png)
+
+However, starting in the 1990s, there’s a clear upward trend, reflecting a growing acceptance and visibility of the LGBTQ+ community in society. This trend accelerates even further in the 2000s and 2010s, reaching its peak with over 200 movies per year (but then drastically decreasing after 2008… hmm… very suspicious).
+
+One might think that the sharp increase highlights how filmmakers and audiences alike have become more open to stories exploring LGBTQ+ themes, breaking away from years of stigma and underrepresentation. While the sudden dip at the end may indicate incomplete data or temporary fluctuation, the overall trend is a testament to the industry’s progress toward inclusivity and diversity.
+
+BUT WAIT…. Isn’t there an issue here? What if this increase was due to more movies being released over time ? Well you are right 😱
+
+![Movie release year distribution](/assets/img/plots/movies-released-per-year.png)
+
+Since more movies are produced over time, we need to account for this to really understand if the LGBTQ+ community depiction in movies has increased over time. Don't worry, we've got you covered! To overcome this issue, let’s analyze the mean percentage of movies covering the theme of LGBTQ+ communities instead 👍 
+
+![LBGTQ movies](/assets/img/plots/average-LGBT-per-year.png)
+
+Isn't this better? We can observe that the mean percentage of movies with LGBTQ+ themes per 5-year period has shown a steady increase over time. While the early years remained modest, with less than 1% representation before the 1920s, a notable rise began around the 1940s, followed by consistent growth throughout the second half of the century.
+
+This trend reflects a society that has become increasingly open to diversity and inclusive storytelling, and more recognizing the rights and existence of the LGBTQ+ community. 
+
+
+# The evolution of Ethnic representation in the movie industry across time :
+
+![Fiji Islands](/assets/img/images/fiji-islands.png)
+
+Hey there, are you still following ? You better do 🧿👄🧿🔪 ! (Just kidding)
+
+Now that we (I!) discussed the evolution of gender representation across time, let’s take a deep breath and dive towards ethnicities, our second main axis of interest. 
+
+### A First Overview…
+
+You get the scheme now : let’s start with a big-picture view, and visualize the overall ethnicity distribution in the movie industry :
+
+![Ethnicities distribution](/assets/img/plots/ethnicities-distrib-pie.png)
+
+Unsurprisingly, white ethnicities (European + North American) dominate the screen (about 52% of the chart). Not so close on their heels, Asian ethnicities come in strong at 15.3%, reflecting a growing recognition of Asian talent and stories worldwide.
+ 
+Next up, Jewish communities (14.3%), and further down, African ethnicities sit at 9.6%. While it’s a decent share, we can’t help but hope for more growth in representation here! 
+
+Notice that latin american ethnicities are so under-represented in movies in our dataset that it falls under the “Others” category, and same applies with Indigenous communities. 
+
+All in all, despite this colorful variety, there’s a noticeable imbalance, with a clear dominance of certain groups—particularly American and Western ethnicities—while many others remain underrepresented. So, what does this tell us? While we expect that some progress has been made in showcasing different cultures and backgrounds (from our previous regressions!), it’s clear that some groups still dominate the screen more than others. But hey, the pie is far from set in stone—let’s hope the future carves out bigger, tastier slices for everyone!
+
+### Movies average ethnic score per period
+
+Let’s take a step forward and ask: How has ethnic representation in movies evolved over time? To answer this, we look at the average ethnic score per period, a measure that reveals how diverse– in terms of ethnicity– movie casts have been across different periods each spanning 5 years. Are we seeing steady progress toward inclusivity, or has representation remained stagnant? By breaking this down into time periods, we can uncover trends, shifts, and moments where the industry took strides—or faltered—in telling stories that reflect a broader range of ethnic backgrounds. Let’s dive in and see what the numbers have to say!
+
+![Ethnic score evolution](/assets/img/plots/ethnic-score-evolution.png)
+
+Look at this upward climb—it’s a story of progress! The average ethnic score per period has steadily increased over time, painting a hopeful picture of growing diversity in the movie industry. Starting from a modest baseline in the early 1910s, where representation was barely noticeable, we see slow but steady growth throughout the mid-20th century. By the 1960s, there’s a clear jump, reflecting a period where social change began influencing cinema. 
+
+All in all, the average ethnic score is climbing over the years, suggesting that filmmakers and audiences alike began embracing more diverse casts.
+
+This plot doesn’t just tell a story of numbers; it’s a reflection of society’s gradual shift toward inclusivity and a greater appreciation for stories representing all cultures and backgrounds. Progress isn’t perfect, but hey, we’re moving in the right direction!
+
+### Ethnicities in movie genres : an evolution over time
+
+Historically, certain ethnic groups have been heavily underrepresented or confined to specific genres, often reinforcing stereotypes. But how has this changed over time? Have we seen more diversity across all genres, or are certain categories still dominated by specific groups? By analyzing the evolution of ethnic representation within movie genres, we can uncover trends, progress, and lingering disparities, painting a clearer picture of how far the industry has come—and how far it still needs to go. Let’s explore what the data reveals!
+
+![Ethnic score evolution](/assets/img/plots/heatmap_ethnic.png)
+
+Our results show how ethnic diversity has evolved across movie genres over time—and trust me, it’s quite the journey! From the late 1980s to the 2010s, we see a steady increase in the average ethnic score, with certain genres showing real momentum. Action, Adventure, and Comedy consistently lead the way with the highest scores, suggesting that these blockbuster-driven genres were among the first to embrace more diverse casts. 
+
+Besides,  there’s something particularly heartwarming about Romance. With steadily increasing scores, Romance stands out as a genre where society has become more open to seeing interracial love stories on screen—reflecting an evolving cultural mindset that embraces diversity in relationships.
+
+But here’s the kicker: the upward trend in Animation and Fantasy reveals a growing effort to create worlds where everyone can see themselves represented. These genres, which traditionally relied on Western-centric narratives, are now embracing more inclusive and diverse storytelling, reflecting a global shift in values. It shows that society is becoming more open to celebrating different cultures, identities, and traditions, not just in grounded, realistic settings, but in imaginative worlds as well.
+
+Overall, this heatmap paints a clear picture: while diversity has made strides across popular genres, progress is far from uniform. The data suggests a mix of progress, hesitation, and a reminder that some genres still have work to do in telling stories that reflect the richness of the world’s ethnic diversity, such as Sports and Horror movies (although this might not be the main focus of these movie genres anyway!)
+
+
+# Conclusion : TBD
