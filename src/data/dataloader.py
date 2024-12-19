@@ -3,7 +3,7 @@ import os
 
 import pandas as pd
 
-from src.utils.data_utils import reorder_column
+from src.utils.data_utils import *
 
 
 class DataLoader:
@@ -252,14 +252,7 @@ class DataLoader:
         df = pd.merge(
             df, self.load_plot_summaries(), on="wikipedia_movie_id", how="left"
         )
-
-        # df = df.merge(
-        #     self.load_fb_wiki_mapping()[["freebase_id", "wikidata_id"]],
-        #     how="left",
-        #     left_on="Freebase movie ID",
-        #     right_on="freebase_id",
-        # )
-
+        df = reduce_genres_and_ethnicities(df)
         return df
 
     def load_name_clusters(self) -> pd.DataFrame:
