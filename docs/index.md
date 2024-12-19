@@ -2,28 +2,24 @@
 layout: home
 title: The Evolution of Gender and Ethnic Representation in Cinema
 toc:
-  - id: section1
-    title: Section 1
-  - id: section2
-    title: Section 2
-  - id: section3
-    title: Section 3
+  - id: motivation
+    title: Motivation
+  - id: introduction
+    title: Introduction
+  - id: analysis
+    title: A few words on our analysis
+  - id: effects-of-diversity
+    title: Effects of Diversity on Movie Revenue
+  - id: trends
+    title: Evolution of Trends in the movie industry and what they reflect on society
+  - id: gender-representation
+    title: The evolution of Gender representation in the movie industry across time
+  - id: ethnic-representation
+    title: The evolution of Ethnic representation in the movie industry across time
 
 subtitle: Analyzing diversity trends in the film industry
 cover-img: "/assets/img/images/header2.png"
 ---
-
-# Section 1 {#section1}
-
-Content for section 1...
-
-# Section 2 {#section2}
-
-Content for section 2...
-
-# Section 3 {#section3}
-
-Content for section 3...
 
 # Motivation
 
