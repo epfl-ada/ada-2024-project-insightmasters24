@@ -1125,14 +1125,13 @@ pre {
 }
 
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 250px;
-  height: 100%;
-  overflow-y: auto;
-  background-color: var(--navbar-col);
-  margin-top: 3.125rem;
+  position: sticky;
+  top: 25%; /* Adjust this value to center it vertically/
+ transform: translateY(-50%); /* This will center it by moving it up by half of its height */
+ height: auto; /* Ensure the height is auto to accommodate content */
+ padding-top: 90px;
+ background-color: var(--navbar-col);
+ margin-top: 3.125rem; /* You can adjust this if needed */
 }
 
 .sidebar h5 {
