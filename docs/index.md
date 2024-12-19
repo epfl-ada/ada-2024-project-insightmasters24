@@ -173,7 +173,7 @@ However, a common misconception about the source of this imbalance is that older
 
 ![Gender distribution over time](/assets/img/plots/gender-distribution-time.png) 
 
-![Gender distribution over periods](/assets/img/plots/Women-5-years.png) 
+![Gender distribution over periods](/assets/img/plots/Women-5-years.jpg) 
 
 Well, that’s unexpected ! When examining the data, the proportion of female actresses has actually remained relatively stable, increasing at slow rates over the years. While there have probably been shifts in the types of roles women play and how they are portrayed, the overall representation of women in terms of sheer numbers has not seen a dramatic change, challenging assumptions about dramatic progress in gender equity in cinema.
 
