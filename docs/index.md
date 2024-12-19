@@ -54,7 +54,7 @@ Alright, let’s get serious for a moment. Your concern is completely valid: by 
 
 ![Average Movie Revenue per Year](/assets/img/plots/Movie-revenue-per-year.png)
 
-<iframe src="assets/plots/plot_mean_revenue_per_year.html" width="100%" height="500px" style="border:none;"></iframe>
+<iframe src="assets/plots/plot_mean_revenue_per_year.html" width="70%%" height="70%" style="border:none;"></iframe>
 
 While such an increase can be explained by democratization of cinema over the years, time value of money also plays an important role. In fact, we estimate that $100 in the early 1900’s corresponds to a purchasing power of nearly $3800 today!
 
@@ -279,7 +279,7 @@ Since more movies are produced over time, we need to account for this to really 
 
 ![LBGTQ movies](/assets/img/plots/average-LGBT-per-year.png)
 
-<iframe src="assets/plots/plot_lgbtq_movies_percentage_per_period.html" width="100%" height="500px" style="border:none;"></iframe>
+<iframe src="assets/plots/plot_lgbtq_movies_percentage_per_period.html" width="70%" height="70%" style="border:none;"></iframe>
 
 Isn't this better? We can observe that the mean percentage of movies with LGBTQ+ themes per 5-year period has shown a steady increase over time. While the early years remained modest, with less than 1% representation before the 1920s, a notable rise began around the 1940s, followed by consistent growth throughout the second half of the century.
 
