@@ -1,6 +1,33 @@
+from functools import wraps
+
 import matplotlib.pyplot as plt
 import pandas as pd
+import plotly.io as pio
+import plotly.tools as tls
 import seaborn as sns
+
+
+def save_fig_to_html(func):
+    """Decorator to save matplotlib figure as HTML using plotly"""
+
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        # Get the matplotlib figure from the decorated function
+        fig = func(*args, **kwargs)
+
+        # Convert Matplotlib figure to Plotly
+        plotly_fig = tls.mpl_to_plotly(fig)
+
+        # Generate filename from function name
+        filename = f"{func.__name__}.html"
+
+        # Save the Plotly figure as HTML
+        pio.write_html(plotly_fig, filename)
+
+        return fig
+
+    return wrapper
+
 
 # List of LGBTQ+ related terms
 lgbtq_terms = ['gay', 'lesbian', 'homosexual', 'homosexuality', 'bisexual', 'transgender', 'queer', 'trans', 'transsexual', 'transvestite', 'transvestism']
@@ -193,20 +220,24 @@ def plot_movies_by_year(df):
     )
     plt.show()
 
+
+@save_fig_to_html
 def plot_gender_distribution(df):
     """Plot the total distribution of female and male actors"""
     # Extract the 'Actor gender' column, split it by commas, and count the occurrences of 'F' and 'M'
-    gender_counts = (
-        df["actor_gender"].str.split(", ").explode().value_counts()
-    )
+    gender_counts = df["actor_gender"].str.split(", ").explode().value_counts()
 
-    plt.figure(figsize=(8, 6))
-    gender_counts[["F", "M"]].plot(kind="bar", color=["pink", "blue"])
-    plt.title("Number of Female vs Male Actors")
-    plt.xlabel("Gender")
-    plt.ylabel("Number of Actors")
-    plt.xticks(rotation=0)
-    plt.show()
+    # Create the Matplotlib figure
+    fig, ax = plt.subplots(figsize=(8, 6))
+    gender_counts[["F", "M"]].plot(kind="bar", color=["pink", "blue"], ax=ax)
+    ax.set_title("Number of Female vs Male Actors")
+    ax.set_xlabel("Gender")
+    ax.set_ylabel("Number of Actors")
+    ax.set_xticks(range(len(gender_counts[["F", "M"]])))
+    ax.set_xticklabels(["F", "M"], rotation=0)
+
+    return fig
+
 
 def plot_top_genres_by_year(df):
     """Plot the top 3 movie genres for the last 10 years of our dataset"""
