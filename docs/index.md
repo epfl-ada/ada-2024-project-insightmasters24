@@ -6,16 +6,16 @@ toc:
     title: Motivation
   - id: introduction
     title: Introduction
-  - id: analysis
-    title: A few words on our analysis
   - id: effects-of-diversity
-    title: Effects of Diversity on Movie Revenue
+    title: Diversity's effect
   - id: trends
-    title: Evolution of Trends in the movie industry and what they reflect on society
+    title: Trends
   - id: gender-representation
-    title: The evolution of Gender representation in the movie industry across time
+    title: Gender Representation
   - id: ethnic-representation
-    title: The evolution of Ethnic representation in the movie industry across time
+    title: Ethnic Representation
+  - id: conclusion
+    title: Conclusion
 
 subtitle: Analyzing diversity trends in the film industry
 cover-img: "/assets/img/images/header2.png"
@@ -44,7 +44,7 @@ Obviously not! Fifty or sixty years ago, representation of LGBTQ+ characters, ra
 
 By using movie revenue as a metric to assess how well a movie was received by the public, we aim to analyze the archetypes of characters portrayed in successful movies, shedding light on the audience's evolving interests and preferences, and thus offering insights into how societal norms and perceptions have shifted over the years.
 
-# A few words on our analysis {#analysis}
+# A few words on our analysis
 
 You’ve probably figured it out by now: our study relies heavily on movie revenue to uncover trends. And yes, I can already hear the criticism coming from miles away: “But how can you compare movies from different eras? You need to adjust for inflation and time value of money!"
 
@@ -119,7 +119,7 @@ An explanation for this observation—and one we’ll explore in more detail lat
 
 All in all, it’s clear that when it comes to revenue, big, bold, and visually immersive genres steal the show, leaving the quieter categories fighting for their share of the spotlight.
 
-# Evolution of Trends in the movie industry and what they reflect on society
+# Evolution of Trends in the movie industry and what they reflect on society {#trends}
 
 We spoke bulk, now let’s speak trends!
 
@@ -166,7 +166,7 @@ Our observations highlight a society that idealizes young and likely elegant wom
 
 - _A neglected observation?_ \* You might be wondering : these students did not comment about the recurrent age feature! Minus one ! Well, they did, but this feature truly becomes interesting when coupled to other features such as gender. This will be further developed in the next chapter, so stay with me !
 
-# The evolution of Gender representation in the movie industry across time
+# The evolution of Gender representation in the movie industry across time {#gender-representation}
 
 We have just studied the driving factors that influence the most movie revenue during specific time frames. I hope that this first analysis gave you more insights about how the movie industry is shaped by shifts in societal trends and the desire of the public to see some communities and movie genres represented over time.
 
@@ -277,9 +277,9 @@ Isn't this better? We can observe that the mean percentage of movies with LGBTQ+
 
 This trend reflects a society that has become increasingly open to diversity and inclusive storytelling, and more recognizing the rights and existence of the LGBTQ+ community.
 
-# The evolution of Ethnic representation in the movie industry across time :
+# The evolution of Ethnic representation in the movie industry across time : {#ethnic-representation}
 
-![Fiji Islands](/assets/img/images/fiji-islands.png)
+![Fiji Islands](/assets/img/images/fiji_islands.png)
 
 Hey there, are you still following ? You better do 🧿👄🧿🔪 ! (Just kidding)
 
@@ -325,7 +325,7 @@ But here’s the kicker: the upward trend in Animation and Fantasy reveals a gro
 
 Overall, this heatmap paints a clear picture: while diversity has made strides across popular genres, progress is far from uniform. The data suggests a mix of progress, hesitation, and a reminder that some genres still have work to do in telling stories that reflect the richness of the world’s ethnic diversity, such as Sports and Horror movies (although this might not be the main focus of these movie genres anyway!)
 
-# Conclusion :
+# Conclusion : {#conclusion}
 
 And that’s a wrap! This exploration of cinema’s evolution shows us that movies have always been more than just pure entertainment, they are a window into our changing world. Over the decades, we’ve seen some progress in representation, with more diverse casts and themes making their way to the big screen. But the journey isn’t complete. Despite strides toward inclusivity, there are still gaps to bridge and stereotypes to challenge.
 
