@@ -29,7 +29,7 @@ Obviously not! Fifty or sixty years ago, representation of LGBTQ+ characters, ra
 By using movie revenue as a metric to assess how well a movie was received by the public, we aim to analyze the archetypes of characters portrayed in successful movies, shedding light on the audience's evolving interests and preferences, and thus offering insights into how societal norms and perceptions have shifted over the years.
 
 
-# A few words on our analysis :
+# A few words on our analysis 
 
 You’ve probably figured it out by now: our study relies heavily on movie revenue to uncover trends. And yes, I can already hear the criticism coming from miles away: “But how can you compare movies from different eras? You need to adjust for inflation and time value of money!"    
 
@@ -48,7 +48,7 @@ Moreover, due to data imbalance when it comes to movie release language, I decid
 ![Average Movie Revenue per Year](/assets/img/plots/language-distribution-barplot.png)    
 
 
-# Effects of Diversity on Movie Revenue : 
+# Effects of Diversity on Movie Revenue  
 
 Before further diving into our story, here is a picture of Patagonia, Argentina :    
 
@@ -66,7 +66,7 @@ Notice anything special ? The gender ratio, as well as the presence of some ethn
 
 Ah! Just before I forget : computing the Spearman correlation instead of the Pearson correlation WAS a choice. In fact, Spearman correlation is better suited to detect monotonic, but not necessarily linear relationships, thus providing more robust results. “robuster”? “more robust”?   Well , you get the idea.    
 
-## How does the ratio of female actresses in the movie cast influences the revenue ? 
+### How does the ratio of female actresses in the movie cast influences the revenue ? 
 
 🎵Roses are red, Violets are blue 🎶 The ratio of female has an influence on the movie revenue !    
 
@@ -79,7 +79,7 @@ This reveals a lot about the depiction of women in cinema and, by extension, bro
 On the other hand, the sharp drop in revenue when there are too few women highlights an expectation for female presence, likely as a means of fulfilling traditional or stereotypical roles—love interests, sidekicks, or supporting characters—rather than as central, multi-dimensional figures.
 In short, this trend underscores a lingering imbalance: while cinema and society have accepted a certain level of female representation, it remains confined within limits that align with historical gender roles. Breaking these boundaries would require challenging deeply ingrained perceptions of who gets to be at the forefront of storytelling.
 
-## What about the revenue per ethnic group ? 
+### What about the revenue per ethnic group ? 
 
 Now that we've explored gender, let’s turn to another key question: what about revenue across ethnic groups? Are certain ethnicities more prominently featured in box office hits? As you might guess, the data speaks volumes—so let’s take a closer look at how revenue aligns (or doesn’t) with the representation of different ethnic groups on screen.
 
@@ -89,11 +89,11 @@ The plot reveals a relatively balanced average revenue per ethnic group, with so
 
 Overall, the revenue distribution across ethnic groups appears fairly consistent, with no striking imbalance. This suggests that movies featuring diverse ethnicities have similar earning potential, reflecting openness among audiences to embrace and engage with stories representing a variety of cultures.
 
-## And for  the revenue per movie genre ?
+### And for  the revenue per movie genre ?
 
 Are all genres created equal when it comes to box office success, or do some consistently outshine the rest? From action-packed blockbusters to heartfelt dramas, let’s explore which genres bring in the big bucks and which ones struggle to capture audiences’ wallets—and hearts.
 
-![revenue per ethnicity](/assets/img/plots/Revenue-per-genre.png)
+![revenue per genre](/assets/img/plots/Revenue-per-genre.png)
 
 Wow, well that’s surprising! At the very top, Animation absolutely dominates, raking in the highest average revenue—no surprise there, given its universal appeal, family-friendly nature, and blockbuster franchises that pull in audiences worldwide. 
 
@@ -116,8 +116,130 @@ To account for potential non-linearity caused by time dependence (e.g., a featur
 
 The plots below showcase the top 5 most influential features with a positive effect on the revenue for movies released since 1985, providing insights into the key factors driving box office performance during that specific period.
 
-## Movie Genre trending success across time : 
+### Movie Genre trending success across time  
+
+![Genre trends](/assets/img/plots/Genres-regression.png)
+
+Notice some trends? Well, we do! In fact, while science fiction,adventure and romance movies seem to have gained long-lasting popularity in recent years, new themes have also stood out and grown in popularity during specific time frames.
+
+Interestingly, a somewhat thought-provoking trend can be observed in the 1990s, where movies exploring themes of politics and war found remarkable success, just as the world was emerging from the Cold War. 
+
+Another amusing trend appears to be the popularity of movies showcasing the LGBTQ+ community by the end of the 20th century. While LGBTQ+ representation remained controversial at the time (as one can notice during the AIDS/HIV crisis between 1980 and 1990), there was however growing advocacy for visibility and rights. From our model, we can thus infer that this societal shift and progress in cultural values has opened the door for movies that explored LGBTQ+ themes to gain wider acceptance and curiosity.
+
+### Preferred character archetype and main actor physical features evolution across time  
+
+![Character trends](/assets/img/plots/Character-reg-1.png)
+
+As for main characters' features, we can notice that successful movies tend to star more actors from jewish communities since 2005. While this may be due to the performance of some very talented jewish actors starring in movies that thus generated large revenue (ie. there might be reverse causality in the model), this also indicates that the public is more open to Jewish representation in movies.  
+
+Interestingly, a similar trend can be observed regarding Eastern European figures in the movie industry in the late 1900’s, more specifically between 1990 and 1999. Recall from earlier that during the same period, movies that touched on the themes of politics and war were very popular. Given that most of the movies considered in our study are American (or at least western!) as we only considered movies released in English, don’t you think that it is a bit weird that successful movies also contained representation of Eastern European characters? You know, with the end of the cold war and stuff… Maybe… Maybe not….
+
+In any case, this is still a very interesting observation, as this shows that society was avid of movies featuring Eastern Europeans and treating the theme of politics during a period in which the political climate was very tense. Once again, this highlights the role of cinema in mirroring societal trends, and this confirms our choice of using the movie revenue as a metric to assess the overall focus in the movie industry. 
+
+Finally, we can see here and there that the representation of characters from latin-american and black communities positively affect the movie revenue, shedding the light on how well the representation of these ethnicities in movies were received by the public. 
+
+### A more global focus on diversity of characters in the movie industry  
+
+Running this time the same regressions with the ethnic score (computed as the number of ethnicities represented in movies) instead of each ethnicity represented as a feature, we get very interesting results : 
+
+![Character trends 2](/assets/img/plots/Character-reg-2.png)
+
+Nothing strikes you immediately? Between 1995 and 1999, and after 2010, the higher the ethnic score, the higher is expected the revenue of a movie! This result completely aligns with the McKinsey study discussed earlier, you know, the one about the influence of ethnicity on movie revenue! Perhaps those McKinsey consultants are former ADA students…
+
+In any case, there is a reason why the effect of ethnic representation on the revenue is so strong : movies displaying more ethnicities are better received by the public, as they probably appeal to a wider audience! This clearly shows that society is evolving to embrace and celebrate a broader range of cultures and ethnicities, reflecting a growing demand for stories that resonate with diverse audiences.
+
+Besides, the presence of female actors in the movie cast were expected to have a particularly important effect in increasing the movie revenue (and thus, movie success!) between 1990 and 1994, and during the period from 2005 to 2009. Interestingly, during these exact same periods, Romance movies showed enhanced success!  This observation will be further discussed in the next chapters, yet this already says a lot about the role that women mostly play in cinema !  
+In particular, during year 1990-1994, the audience also seems to have shown increased interest towards younger actors (maybe younger females 🤨?!). 
+
+Our observations highlight a society that idealizes young and likely elegant women in cinema as the embodiment of femininity.
+
+* _A neglected observation?_ *  You might be wondering : these students did not comment about the recurrent age feature! Minus one ! Well, they did, but this feature truly becomes interesting when coupled to other features such as gender. This will be further developed in the next chapter, so stay with me !
 
 
+# The evolution of Gender representation in the movie industry across time 
+
+We have just studied the driving factors that influence the most movie revenue during specific time frames. I hope that this first analysis gave you more insights about how the movie industry is shaped by shifts in societal trends and the desire of the public to see some communities and movie genres represented over time. 
+
+But now, let’s dive deeper in the topic, and analyze how the representation of each ethnicity, gender, and movie genre, has evolved across the years. 
+
+### Gender representation : imbalance and misconceptions  
+
+Let’s be honest: women ARE underrepresented in the movie industry. In fact, when analyzing the overall proportion of male and female actors in the cast of each movie in our dataset, the results are striking—only about a third of the cast tends to be women. This stark imbalance highlights a persistent gender disparity in the industry.
 
 ![Gender distribution](/assets/img/plots/gender-distribution-pie.png)
+
+However, a common misconception about the source of this imbalance is that older movies dataset may showcase less women in their cast, whereas the number of female actresses in movies has significantly increased over the years. 
+
+![Gender distribution over time](/assets/img/plots/gender-distribution-time.png)
+
+Well, that’s unexpected ! When examining the data, the proportion of female actresses has actually remained relatively stable. While there have probably been shifts in the types of roles women play and how they are portrayed, the overall representation of women in terms of sheer numbers has not seen a dramatic change, challenging assumptions about progress in gender equity in cinema.
+
+### Female representation across genres over time  
+
+Let’s now dive into an intriguing question: how has female representation varied across movie genres over time? While some genres might come to mind as more "female-friendly," others may have historically sidelined women in favor of male-dominated narratives. Has this dynamic evolved as society’s views on gender have changed, or have certain genres stubbornly resisted progress? Let’s take a closer look! HEATMAP!!!!!!
+
+![Female distribution across genres](/assets/img/plots/heatmap_female.png)
+
+What fascinating insights into female representation across genres and time periods this HEATMAP!!!! offers.
+
+Unsurprisingly,  Romance and Erotic movies consistently show the highest percentages of female actors, peaking at 42.7% (Romance) and a striking 52.3% (Erotic and Adult) in the 2000s. These genres have historically centered women, though often within traditional or stereotypical roles. 
+
+On the other hand, even though we can notice an increase in female representation in action-heavy genres like Action and Adventure, the proportion still remains low with female representation hovering around the 22–27% range, highlighting the male-dominated nature of these categories.
+
+Interestingly, genres such as Drama and Fantasy and Science Fiction have shown notable growth, reaching over 40% female representation in recent years, signaling progress in genres that traditionally catered to male leads. However, others, like War and Political films, remain stubbornly male-dominated despite small gains.
+
+Overall, while progress has been made, female representation still fluctuates significantly across genres, revealing a gradual societal shift toward greater inclusivity and recognition of women in diverse roles but also underscoring the lingering influence of traditional gender norms in shaping how female characters are represented in movies.
+
+### And what about male representation ? 
+
+HEATMAP!!!!!!!!!
+
+![Male distribution across genres](/assets/img/plots/heatmap_maleProp.png)
+
+At this point, this is a surprise for no one : men have historically dominated most movie genres, and that domination persists over the decades.
+
+Unlike female representation, which shows fluctuations depending on genre, male representation remains high and stable across many categories, with values consistently above 60–80%.
+
+Genres like Action, War and Political, Adventure and Sports stand out as particularly male-heavy, reinforcing traditional gender roles where men are portrayed as warriors, heroes, or authority figures. On the other hand, in genres such as Science Fiction, Comedy, and Crime and Mystery, we can observe a notable decrease in male representation over time, which signals a positive shift toward greater gender balance. These genres, once heavily dominated by male leads, have begun to open up more space for female characters, reflecting a broader societal shift in how roles are defined and who gets to tell these stories.
+
+Furthermore, there’s something interesting in genres like Romance, Musicals and Dance, and Erotic and Adult, where male representation is more and more balanced, indicating spaces where women have a larger on-screen presence, likely due to the nature of these genres centering around relationships, emotion, or intimacy.
+
+Overall, the data reflects long-standing societal norms and expectations that have shaped cinema for decades. Men have been—and still are—at the center of storytelling, particularly in action-oriented or "serious" genres, while women have historically been confined to more emotionally-driven roles. Although all the genres show a trend towards better balance between male and female representation- which shows that society is evolving- the domination of male representation across most genres remains a stark reminder of how deeply ingrained these roles have been in both cinema and culture.
+
+ 
+### Age diversity among genders in movies 
+
+Aren't you curious about the age distribution of actors in cinema, especially when broken down by gender? Who gets the spotlight—and at what age—for both male and female actors? Well, I am ! 	
+
+By exploring this, one can gain valuable insight into how men and women are depicted in movies. Are women portrayed as youthful and glamorous? Are men allowed to age into wisdom and authority? Let’s dive into the data and uncover the patterns behind the characters we see on screen.
+
+As usual : Lady’s first…
+
+![Female age distribution](/assets/img/plots/female-age-distrib.png)
+
+Oh, my! Just kidding, the results shown by this plot are not surprising at all. The plot tells in fact a familiar story: youth dominates the screen. Female actresses in their 20s and 30s consistently take up the biggest share of roles, while older age groups— 50+, and especially 60+—are left with scraps (probably because they are retired or something). Besides, it appears that an important number of movies tend to star actresses in their 40s from the 1930’s and onward, as the proportion of female actresses in the age group 40-49 years old consistently appears in the movie's cast. 
+
+So what about their male counterparts? 
+
+![Male age distribution](/assets/img/plots/male-age-distrib.png)
+
+Interestingly, this trend isn’t exclusive to women; similar patterns can be observed for male actors, showing that Hollywood tends to favor younger faces for both genders. Over time, things have stayed pretty consistent: the industry loves its 20–39 age range, while opportunities for older actors steadily decline. And while the “Under 20” group makes occasional appearances, they’ve never managed to steal the spotlight (see that small brownish stain at the top of the plots).
+
+So, it’s not just a Hollywood obsession with youthful femininity—it’s an industry-wide bias that keeps both men and women under the same ticking clock. Additionally, those observations highlight the audience’s preference to see on screen actors from similar age groups in movies, ideally actors between 20 and 50 years old. 
+
+Ah, right before I forget,  your keen eye has probably already noticed that the proportion of older actors bumped up by the end of the 1920’s and remains quite steady over time . We can actually find a very rational explanation to this : yes, actors are humans too (would you believe this?), and just as any human, they too get older, thus consistently changing age groups. Since those actors are generally more experienced, they tend to still strike the eye of movie realizators for their ability to attract the public and generate higher revenue streams (This also explains the importance of the max age feature in our previous regressions!). Yet, this also means that the public is open to representation of older people in cinema, showing that society is more and more open to depiction of older male and female characters in movies.
+
+### And what about global age trends ? 
+
+Your wish is my command, dear reader. You can see here the overall age distribution of actors (age at movie release!) in the casts of our movie dataset : 
+
+![global age distribution](/assets/img/plots/age-distribution.png)
+
+NOT unexpectedly, this confirms our earlier claims that the industry is mainly dominated by the age group from 20 to 39 years old. However, over time, we could see that the public became more prone to depiction of older characters in movies. Notice that in the early 1900s, the movie industry was largely dominated by the age group 20-29 years old, whereas the distribution was much more balanced between different age groups in 2010!
+
+Over time, the movie industry has gradually shifted away from the stereotype of the young, feminine female character and the young, rugged male hero, embracing a wider range of character archetypes. This evolution reflects a society that has become more open-minded, increasingly accepting divergence and diversity in the portrayal of heroes on screen.
+
+### A word about the LGBTQ+ Community...
+
+What about the depiction of the LGBTQ+ community in the movie industry? Well, as you can see, there has been a notable increase in movies with LGBTQ+ themes over time. For much of the 20th century, representation was minimal, with only a handful of movies per year featuring LGBTQ+ themes or characters.
+
