@@ -1,8 +1,8 @@
 ---
 layout: home
-header_image: "/assets/img/images/header2.png"
 title: The Evolution of Gender and Ethnic Representation in Cinema
 subtitle: Analyzing diversity trends in the film industry
+cover-img: "/assets/img/images/header2.png"
 ---
 
 # Motivation 
