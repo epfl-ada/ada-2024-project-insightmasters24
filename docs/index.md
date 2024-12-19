@@ -1,6 +1,6 @@
 ---
 layout: home
-header_image: "/assets/img/images/header.webp"
+header_image: "/assets/img/images/header2.png"
 title: The Evolution of Gender and Ethnic Representation in Cinema
 subtitle: Analyzing diversity trends in the film industry
 ---
@@ -131,13 +131,12 @@ Another amusing trend appears to be the popularity of movies showcasing the LGBT
 
 ![Character trends](/assets/img/plots/Character-reg-1.jpg)
 
-As for main characters' features, we can notice that successful movies tend to star more actors from jewish communities since 2005. While this may be due to the performance of some very talented jewish actors starring in movies that thus generated large revenue (ie. there might be reverse causality in the model), this also indicates that the public is more open to Jewish representation in movies.  
+As for main characters' features, we can notice that successful movies tend to star more actors from jewish communities since 2010. While this may be due to the performance of some very talented jewish actors starring in movies that thus generated large revenue (ie. there might be reverse causality in the model), this also indicates that the public is more open to Jewish representation in movies.  
 
-Interestingly, a similar trend can be observed regarding Eastern European figures in the movie industry in the late 1900’s, more specifically between 1990 and 1999. Recall from earlier that during the same period, movies that touched on the themes of politics and war were very popular. Given that most of the movies considered in our study are American (or at least western!) as we only considered movies released in English, don’t you think that it is a bit weird that successful movies also contained representation of Eastern European characters? You know, with the end of the cold war and stuff… Maybe… Maybe not….
+Interestingly, a similar trend can be observed regarding African ethnicities in the beginning of the 90’s, signaling a turning point in how Black characters were represented in movies. This change likely correlates with growing social movements advocating for diversity and the rising influence of Black culture in mainstream media during this time. Similar statements can be made about indigenous representation in the early 2000s. 
 
-In any case, this is still a very interesting observation, as this shows that society was avid of movies featuring Eastern Europeans and treating the theme of politics during a period in which the political climate was very tense. Once again, this highlights the role of cinema in mirroring societal trends, and this confirms our choice of using the movie revenue as a metric to assess the overall focus in the movie industry. 
+Besides, the data also shows that white ethnicities (European and North American) tend to always remain under the spotlight.
 
-Finally, we can see here and there that the representation of characters from latin-american and black communities positively affect the movie revenue, shedding the light on how well the representation of these ethnicities in movies were received by the public. 
 
 #### A more global focus on diversity of characters in the movie industry  
 
