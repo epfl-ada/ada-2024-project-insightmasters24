@@ -1130,6 +1130,7 @@ pre {
   height: 100vh;
   padding: 1rem;
   background-color: var(--navbar-col);
+  margin-top: 3.125rem;
 }
 
 .sidebar h5 {
