@@ -54,7 +54,7 @@ Alright, let’s get serious for a moment. Your concern is completely valid: by 
 
 ![Average Movie Revenue per Year](/assets/img/plots/Movie-revenue-per-year.png)
 
-<div id="/_includes/plots/gender_counts_plot.html" style="width:100%;height:400px;"></div>
+<iframe src="_includes/plots/gender_counts_plot.html" width="100%" height="500px" style="border:none;"></iframe>
 
 While such an increase can be explained by democratization of cinema over the years, time value of money also plays an important role. In fact, we estimate that $100 in the early 1900’s corresponds to a purchasing power of nearly $3800 today!
 
