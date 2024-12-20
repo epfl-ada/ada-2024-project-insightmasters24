@@ -6,6 +6,8 @@ import pandas as pd
 import plotly.io as pio
 import plotly.tools as tls
 import seaborn as sns
+import plotly.express as px
+
 
 
 def save_fig_to_html(func):
@@ -534,34 +536,41 @@ def create_feature_matrix(df):
 
 
 # @save_fig_to_html
-def plot_correlation_matrix(df):
-    """Plot the correlation matrix of the feature matrix"""
-    feature_matrix = create_feature_matrix(df)
+# def plot_correlation_matrix(df):
+#     """Plot the correlation matrix of the feature matrix using Plotly"""
+#     # Assuming create_feature_matrix is already defined
+#     feature_matrix = create_feature_matrix(df)
 
-    # Compute and plot correlation matrix
-    correlation_matrix = feature_matrix.corr("spearman")
-    fig, ax = plt.subplots(figsize=(20, 16))
-    sns.heatmap(
-        correlation_matrix,
-        cmap="coolwarm",
-        center=0,
-        annot=True,
-        fmt=".2f",
-        square=True,
-        ax=ax,
-    )
+#     # Compute correlation matrix
+#     correlation_matrix = feature_matrix.corr("spearman")
 
-    ax.set_title("Correlation Matrix of Movie Features")
-    plt.tight_layout()
+#     # Reset the index to prepare for Plotly heatmap
+#     correlation_matrix = correlation_matrix.reset_index().melt(id_vars="index")
+#     correlation_matrix.columns = ["Feature1", "Feature2", "Correlation"]
 
-    # Printing the top correlations with revenue
-    revenue_correlations = correlation_matrix["revenue"].sort_values(ascending=False)
-    print("\nTop 5 positive correlations with revenue:")
-    print(revenue_correlations.head(5))
-    print("\nTop 5 negative correlations with revenue:")
-    print(revenue_correlations.tail(5))
+#     # Create the heatmap using Plotly
+#     fig = px.imshow(
+#         feature_matrix.corr("spearman"),
+#         color_continuous_scale="coolwarm",
+#         title="Correlation Matrix of Movie Features",
+#         labels={"color": "Correlation"},
+#         zmin=-1,
+#         zmax=1
+#     )
+#     fig.update_layout(
+#         xaxis_title="Features",
+#         yaxis_title="Features",
+#         title_x=0.5,
+#     )
 
-    return fig
+#     # Print the top correlations with revenue
+#     revenue_correlations = feature_matrix.corr("spearman")["revenue"].sort_values(ascending=False)
+#     print("\nTop 5 positive correlations with revenue:")
+#     print(revenue_correlations.head(5))
+#     print("\nTop 5 negative correlations with revenue:")
+#     print(revenue_correlations.tail(5))
+
+#     return fig
 
 
 def plot_ethnicity_and_genre_influence_on_revenue(df):
