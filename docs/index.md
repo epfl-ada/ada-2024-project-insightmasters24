@@ -57,7 +57,7 @@ Alright, let’s get serious for a moment. Your concern is completely valid: by 
 <iframe src="assets/plots/plot_mean_revenue_per_year.html" width="100%" height="300px" style="border:none; transform: scale(0.5);"></iframe>
 
 <div class="plot-container">
-  <iframe src="assets/plots/plot_mean_revenue_per_year.html" width="100%" height="300px" style="border:none;"></iframe>
+  <img src="assets/plots/plot_mean_revenue_per_year.png" alt="Average Movie Revenue per Year" width="100%" height="300px" style="border:none;">
   <div class="plot-caption">This is a caption for the plot.</div>
 </div>
 
