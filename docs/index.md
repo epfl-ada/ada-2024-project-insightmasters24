@@ -212,7 +212,7 @@ Let’s now dive into an intriguing question: how has female representation vari
         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
     ></iframe>
 </div> -->
-<div style="position: relative; width: 100%; height: 500px;">
+<div style="position: relative; width: 100%; height: 800px;">
     <iframe 
         src="assets/plots/female_ratio_heatmap.html" 
         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
