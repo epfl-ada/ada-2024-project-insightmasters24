@@ -54,12 +54,6 @@ Alright, let’s get serious for a moment. Your concern is completely valid: by 
 
 ![Average Movie Revenue per Year](/assets/img/plots/Movie-revenue-per-year.png)
 
-<iframe src="assets/plots/plot_mean_revenue_per_year.html" width="100%" height="300px" style="border:none; transform: scale(0.5);"></iframe>
-
-<div class="plot-container">
-  <iframe src="assets/plots/plot_mean_revenue_per_year.html" width="100%" height="300px" style="border:none;"></iframe>
-  <div class="plot-caption">This is a caption for the plot.</div>
-</div>
 
 While such an increase can be explained by democratization of cinema over the years, time value of money also plays an important role. In fact, we estimate that $100 in the early 1900’s corresponds to a purchasing power of nearly $3800 today!
 
@@ -69,7 +63,6 @@ Moreover, due to data imbalance when it comes to movie release language, I decid
 
 ![Average Movie Revenue per Year](/assets/img/plots/language-distribution-barplot.png)
 
-<iframe src="assets/plots/plot_top_languages.html" width="70%%" height="100px" style="border:none;"></iframe>
 
 # Effects of Diversity on Movie Revenue {#effects-of-diversity}
 
@@ -191,9 +184,6 @@ However, a common misconception about the source of this imbalance is that older
 
 <!-- ![Gender distribution over time](/assets/img/plots/gender-distribution-time.png){: style="width:50%; margin-right:2%"} ![Gender distribution over periods](/assets/img/plots/Women-5-years.jpg){: style="width:50%"} -->
 
-| ![Gender Distribution Over Time](/assets/img/plots/gender-distribution-time.png) | ![Women's Representation Over 5-Year Periods](/assets/img/plots/Women-5-years.jpg) |
-| :------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------: |
-
 ![Gender distribution over time](/assets/img/plots/gender-distribution-time.png)
 
 ![Gender distribution over periods](/assets/img/plots/Women-5-years.jpg)
@@ -205,29 +195,6 @@ Well, that’s unexpected ! When examining the data, the proportion of female ac
 Let’s now dive into an intriguing question: how has female representation varied across movie genres over time? While some genres might come to mind as more "female-friendly," others may have historically sidelined women in favor of male-dominated narratives. Has this dynamic evolved as society’s views on gender have changed, or have certain genres stubbornly resisted progress? Let’s take a closer look! HEATMAP!!!!!!
 
 ![Female distribution across genres](/assets/img/plots/heatmap_female.png)
-
-<!-- <div style="position: relative; width: 100%; height: 80vh;">
-    <iframe
-        src="assets/plots/female_ratio_heatmap.html"
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
-    ></iframe>
-</div> -->
-<div style="position: relative; width: 100%; height: 800px;">
-    <iframe 
-        src="assets/plots/female_ratio_heatmap.html" 
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
-        scrolling="no"
-    ></iframe>
-</div>
-<style>
-    @media (max-width: 768px) {
-        div[style*="position: relative"] {
-            height: 400px;
-        }
-    }
-</style>
-
-<!-- <iframe src="assets/plots/female_ratio_heatmap.html" width="100%" height="300px" style="border:none; transform: scale(0.5);"></iframe> -->
 
 What fascinating insights into female representation across genres and time periods this HEATMAP!!!! offers.
 
