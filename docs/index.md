@@ -75,7 +75,7 @@ Before further diving into our story, here is a picture of Patagonia, Argentina 
 
 ![Beautiful Patagonia](/assets/img/images/Patagonia.jpeg)
 
-Isn’t it lovely ? 🥰 While Patagonia does not have anything to do with the project, studies suggest that reader’s attention tends to fade away after 6 minutes of reading. By putting an image of beautiful Patagonia, I wanted to surprise your brain and fully reengage you in the lecture of our story! (This method was used by an amazing Statistics professor at EPFL (sorry I forgot his name) in the undergraduate course Probabilities & Statistics, and it has proven very efficient!)
+Isn’t it lovely ? 🥰 While Patagonia does not have anything to do with the project, studies suggest that reader’s attention tends to fade away after 6 minutes of reading. By putting an image of beautiful Patagonia, I wanted to surprise your brain and fully reengage you in the lecture of our story! (This method was used by an amazing Statistics professor at EPFL in the undergraduate course Probabilities & Statistics, and it has proven very efficient!)
 
 <span style="color: red;">Back on the track!</span>
 
