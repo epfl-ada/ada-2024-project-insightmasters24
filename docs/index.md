@@ -189,8 +189,7 @@ Let’s be honest: women ARE underrepresented in the movie industry. In fact, wh
 
 However, a common misconception about the source of this imbalance is that older movies dataset may showcase less women in their cast, whereas the number of female actresses in movies has significantly increased over the years.
 
-![Gender distribution over time](/assets/img/plots/gender-distribution-time.png){: style="width:50%; margin-right:2%"}
-![Gender distribution over periods](/assets/img/plots/Women-5-years.jpg){: style="width:50%"}
+![Gender distribution over time](/assets/img/plots/gender-distribution-time.png){: style="width:50%; margin-right:2%"} ![Gender distribution over periods](/assets/img/plots/Women-5-years.jpg){: style="width:50%"}
 
 ![Gender distribution over time](/assets/img/plots/gender-distribution-time.png)
 
