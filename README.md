@@ -63,15 +63,29 @@ To capture the parameters most correlated with revenue, we plotted the correlati
 
 #### Revenue Prediction Model
 
-We plan to build a model to predict movie revenue using character archetypes, actor attributes (e.g., gender, ethnicity, age, height), and movie-specific features like genre, release year, and archetype distribution. We’ll test linear regression, random forest regression, and neural networks, adjusting revenue for inflation to account for changing baselines across decades. Model accuracy will be evaluated using metrics such as Mean Absolute Error (MAE) or Root Mean Square Error (RMSE) to assess prediction effectiveness.
+We analyzed the relationship between movie revenue and features such as gender representation, ethnic diversity, movie genres, and character archetypes by running Ridge regressions. The analysis focused on statistically significant features with a positive effect on revenue at the 5% significance level. To address potential non-linearities caused by time, we segmented the data into 5-year periods, capturing how these features' influence evolved over time.
 
-#### Genre-Archetype Association Model
+Key insights revealed that certain genres, like science fiction, adventure, and romance, have maintained long-term popularity, while themes like politics and war gained traction in the 1990s, reflecting societal trends like the end of the Cold War. Similarly, the late 20th century saw growing success for movies featuring LGBTQ+ themes, coinciding with cultural advocacy for inclusivity.
 
-We will model the relationship between movie genres and character archetypes to identify genre-specific archetype preferences over time. Using actor attributes, genres, and time periods as inputs, we’ll apply clustering (e.g., k-means, hierarchical) to group movies by genre-specific archetype patterns, or association rule learning to uncover these patterns. The output will be a distribution of archetypes per genre over time, that could show shifts in character type prevalence across genres.
+Ethnic representation also played a crucial role. Movies with higher "ethnic scores" (a measure of diversity) consistently performed better at the box office since 1995, highlighting the audience's growing demand for diverse storytelling. Representation trends for specific groups, like Jewish and African actors, reflect evolving societal openness to their portrayal, while European and North American ethnicities consistently dominated the screen. Additionally, the period from 1990–1999 saw notable success for romance films, where female representation and younger actors significantly influenced revenue.
+
+These findings underline the dynamic interplay between cultural shifts and audience preferences, revealing the evolving nature of societal values reflected through cinema.
+
 
 #### Temporal Representation Shift Analysis
 
-The Temporal Representation Shift Analysis model will focus on capturing changes in the representation of gender, ethnicity, and other attributes over time. We will apply time series analysis techniques to capture trends in archetype distribution over the years, using methods like linear or polynomial regression to quantify representation shifts. We will visualize these results to illustrate temporal trends and for interpretation.
+Our analysis examined the evolution of gender, age, ethnic, and LGBTQ+ representation in cinema over time, highlighting how societal norms and cultural expectations have shifted.
+
+- **Gender Representation**: Despite assumptions of progress, the proportion of female actresses in movie casts has remained relatively stable over the decades. We found that both too few and too many female actors negatively impacted revenue, reflecting biases that limit women's roles to secondary or stereotypical characters.
+
+- **Age Distribution**: Actors in their 20s and 30s dominated screens across decades, with limited opportunities for older performers. However, by 2010, a more balanced age distribution emerged, indicating growing societal acceptance of older characters in cinema.
+
+- **LGBTQ+ Representation**: LGBTQ+ themes experienced minimal visibility until the 1990s, when a sharp upward trend began, reflecting increased societal acceptance. By analyzing the percentage of movies featuring LGBTQ+ themes over time, we found steady growth, signaling the industry's move toward greater inclusivity.
+
+- **Ethnic Representation**: The "average ethnic score," measuring cast diversity, has steadily climbed since the early 20th century, with a notable increase during the 1960s. While progress is clear, disparities persist, as some ethnic groups remain underrepresented or confined to specific genres.
+
+These findings illustrate the gradual but uneven progress in representation across key dimensions, offering insights into how cinema reflects and drives societal change.
+
 
 ## Proposed Timeline
 
