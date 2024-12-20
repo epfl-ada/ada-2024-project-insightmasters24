@@ -207,12 +207,12 @@ Let’s now dive into an intriguing question: how has female representation vari
 
 ![Female distribution across genres](/assets/img/plots/heatmap_female.png)
 
-<!-- <div style="position: relative; width: 100%; padding-top: 56.25%;">
-    <iframe src"assets/plots/female_ratio_heatmap.html"
+<div style="position: relative; width: 100%; padding-top: 56.25%;">
+   <iframe src="assets/plots/female_ratio_heatmap.html" 
            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"></iframe>
-/div> -->
+/div>
 
-<iframe src="assets/plots/female_ratio_heatmap.html" width="100%" height="300px" style="border:none; transform: scale(0.5);"></iframe>
+<!-- <iframe src="assets/plots/female_ratio_heatmap.html" width="100%" height="300px" style="border:none; transform: scale(0.5);"></iframe> -->
 
 What fascinating insights into female representation across genres and time periods this HEATMAP!!!! offers.
 
