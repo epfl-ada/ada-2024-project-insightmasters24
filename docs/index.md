@@ -56,6 +56,11 @@ Alright, let’s get serious for a moment. Your concern is completely valid: by 
 
 <iframe src="assets/plots/plot_mean_revenue_per_year.html" width="100%" height="300px" style="border:none; transform: scale(0.5);"></iframe>
 
+<div class="plot-container">
+  <img src="assets/plots/plot_mean_revenue_per_year.html" alt="Plot Image" class="plot-image">
+  <div class="plot-caption">This is a caption for the plot.</div>
+</div>
+
 While such an increase can be explained by democratization of cinema over the years, time value of money also plays an important role. In fact, we estimate that $100 in the early 1900’s corresponds to a purchasing power of nearly $3800 today!
 
 In order to account for all these effects, we chose to split our analysis into 5-year periods. This approach not only helps us overcome the inflation and other time-related issues, but also allows us to detect how the impact of each of our features (gender representation, ethnic representation, movie genre, etc.) on movie revenue evolves over time—because, as we’ll see, their influence isn’t static; it changes with the years!
