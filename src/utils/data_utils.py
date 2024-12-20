@@ -248,17 +248,6 @@ def get_revenue(wikidata_id):
         return None
 
 def update_movie_revenue(movie_df):
-    """Update the movie revenue using the Wikidata API"""
-    # Print the number of movies with revenue before Wikidata scraping
-    print(
-        "Number of movies with revenue before Wikidata scraping: ",
-        len(
-            movie_df[
-                movie_df["Movie box office revenue"].notna()
-            ]
-        ),
-    )
-    print("Processing")
     """Update the movie revenue for movies having a missing revenue"""
     def process_row(index, row):
         """Process a row to update the movie revenue"""
@@ -283,15 +272,6 @@ def update_movie_revenue(movie_df):
             index, revenue = future.result()
             movie_df.at[index, "Movie box office revenue"] = revenue
 
-    # Print the number of movies with revenue after Wikidata scraping
-    print(
-        "Number of movies with revenue after Wikidata scraping: ",
-        len(
-            movie_df[
-                movie_df["Movie box office revenue"].notna()
-            ]
-        ),
-    )
     return movie_df
 
 def reduce_genres_and_ethnicities(df, genre_mapping=genre_mapping, ethnicity_mapping=ethnicity_mapping):

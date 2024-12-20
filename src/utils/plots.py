@@ -8,28 +8,6 @@ import plotly.tools as tls
 import seaborn as sns
 
 
-def save_fig_to_html(func):
-    """Decorator to save matplotlib figure as HTML using plotly"""
-
-    @wraps(func)
-    def wrapper(*args, **kwargs):
-        # Get the matplotlib figure from the decorated function
-        fig = func(*args, **kwargs)
-
-        # Convert Matplotlib figure to Plotly
-        plotly_fig = tls.mpl_to_plotly(fig)
-
-        # Generate filename from function name
-        filename = f"{func.__name__}.html"
-
-        # Save the Plotly figure as HTML
-        pio.write_html(plotly_fig, filename)
-
-        return fig
-
-    return wrapper
-
-
 # List of LGBTQ+ related terms
 lgbtq_terms = [
     "gay",
@@ -245,7 +223,6 @@ def plot_movies_by_year(df):
     plt.show()
 
 
-@save_fig_to_html
 def plot_gender_distribution(df):
     """Plot the total distribution of female and male actors"""
     # Extract the 'Actor gender' column, split it by commas, and count the occurrences of 'F' and 'M'
@@ -266,7 +243,6 @@ def plot_gender_distribution(df):
     return fig
 
 
-@save_fig_to_html
 def plot_gender_distribution_pie(df):
     """Plot the total distribution of female and male actors as a pie chart"""
     # Extract the 'Actor gender' column, split it by commas, and count the occurrences of 'F' and 'M'
@@ -793,9 +769,25 @@ def plot_female_ratio_heatmap(df):
     Returns:
     None (displays heatmap and prints averages)
     """
-    genres = df.columns[
-        df.columns.get_loc("Action") : df.columns.get_loc("Erotic and Adult") + 1
-    ].tolist()
+    genres = [
+    "Action",
+    "Adventure",
+    "Comedy",
+    "Drama",
+    "Fantasy and Science Fiction",
+    "Horror",
+    "Romance",
+    "Documentary",
+    "Crime and Mystery",
+    "Musicals and Dance",
+    "War and Political",
+    "Family and Children",
+    "Animation",
+    "Sports",
+    "Experimental and Independent",
+    "LGBT and Gender Issues",
+    "Erotic and Adult"
+    ]
 
     # Define periods of interest
     periods_of_interest = [
@@ -846,9 +838,25 @@ def plot_male_ratio_heatmap(df):
     Returns:
     None (displays heatmap and prints averages)
     """
-    genres = df.columns[
-        df.columns.get_loc("Action") : df.columns.get_loc("Erotic and Adult") + 1
-    ].tolist()
+    genres = [
+    "Action",
+    "Adventure",
+    "Comedy",
+    "Drama",
+    "Fantasy and Science Fiction",
+    "Horror",
+    "Romance",
+    "Documentary",
+    "Crime and Mystery",
+    "Musicals and Dance",
+    "War and Political",
+    "Family and Children",
+    "Animation",
+    "Sports",
+    "Experimental and Independent",
+    "LGBT and Gender Issues",
+    "Erotic and Adult"
+    ]
 
     # Define periods of interest
     periods_of_interest = [
@@ -898,9 +906,25 @@ def plot_ethnic_score_heatmap(df):
     Returns:
     None (displays heatmap and prints averages)
     """
-    genres = df.columns[
-        df.columns.get_loc("Action") : df.columns.get_loc("Erotic and Adult") + 1
-    ].tolist()
+    genres = [
+    "Action",
+    "Adventure",
+    "Comedy",
+    "Drama",
+    "Fantasy and Science Fiction",
+    "Horror",
+    "Romance",
+    "Documentary",
+    "Crime and Mystery",
+    "Musicals and Dance",
+    "War and Political",
+    "Family and Children",
+    "Animation",
+    "Sports",
+    "Experimental and Independent",
+    "LGBT and Gender Issues",
+    "Erotic and Adult"
+    ]
 
     # Define periods of interest
     periods_of_interest = [
