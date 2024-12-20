@@ -192,7 +192,7 @@ However, a common misconception about the source of this imbalance is that older
 <!-- ![Gender distribution over time](/assets/img/plots/gender-distribution-time.png){: style="width:50%; margin-right:2%"} ![Gender distribution over periods](/assets/img/plots/Women-5-years.jpg){: style="width:50%"} -->
 
 | ![Gender Distribution Over Time](/assets/img/plots/gender-distribution-time.png) | ![Women's Representation Over 5-Year Periods](/assets/img/plots/Women-5-years.jpg) |
-|:--:|:--:|
+| :------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------: |
 
 ![Gender distribution over time](/assets/img/plots/gender-distribution-time.png)
 
@@ -206,10 +206,12 @@ Let’s now dive into an intriguing question: how has female representation vari
 
 ![Female distribution across genres](/assets/img/plots/heatmap_female.png)
 
-<div style="position: relative; width: 100%; padding-top: 56.25%;">
-   <iframe src="assets/plots/female_ratio_heatmap.html" 
-           style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"></iframe>
-/div>
+<div style="position: relative; width: 100%; height: 80vh;">
+    <iframe 
+        src="assets/plots/female_ratio_heatmap.html" 
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+    ></iframe>
+</div>
 
 <!-- <iframe src="assets/plots/female_ratio_heatmap.html" width="100%" height="300px" style="border:none; transform: scale(0.5);"></iframe> -->
 
