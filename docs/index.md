@@ -57,7 +57,7 @@ Alright, let’s get serious for a moment. Your concern is completely valid: by 
 <iframe src="assets/plots/plot_mean_revenue_per_year.html" width="100%" height="300px" style="border:none; transform: scale(0.5);"></iframe>
 
 <div class="plot-container">
-  <img src="/assets/plots/plot_mean_revenue_per_year.png" alt="Average Movie Revenue per Year" width="100%" height="300px" style="border:none;">
+  <iframe src="assets/plots/plot_mean_revenue_per_year.html" width="100%" height="300px" style="border:none;"></iframe>
   <div class="plot-caption">This is a caption for the plot.</div>
 </div>
 
@@ -221,6 +221,9 @@ Overall, while progress has been made, female representation still fluctuates si
 HEATMAP!!!!!!!!!
 
 ![Male distribution across genres](/assets/img/plots/heatmap_maleProp.png)
+
+<iframe src="assets/plots/male-ratio-heatmap.html" width="100%" height="300px" style="border:none; transform: scale(0.5);"></iframe>
+
 
 At this point, this is a surprise for no one : men have historically dominated most movie genres, and that domination persists over the decades.
 
