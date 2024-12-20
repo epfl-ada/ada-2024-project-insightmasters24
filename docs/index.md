@@ -344,3 +344,5 @@ And that’s a wrap! This exploration of cinema’s evolution shows us that movi
 The data reveals an industry that is slowly but surely adapting and learning. From the early days of predictable archetypes to today’s push for fresh, authentic narratives with greater diversity, cinema is growing alongside society. While the progress is encouraging, there’s still so much more to explore and achieve.
 
 At their heart, movies are about storytelling—about helping us connect with who we are and envision who we might become. With greater representation, more people are beginning to see themselves reflected in the heroes on screen, making those stories feel deeply personal and impactful. As audiences continue to embrace these characters and narratives, the future of cinema is full of potential, driven by the limitless creativity of filmmakers and the courage to bring every story to life.
+
+![conclude](/assets/img/images/conclude.png)
