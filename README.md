@@ -55,9 +55,9 @@ Furthermore, the annual and global distributions of movie genres revealed tempor
 The distribution of age among actors by gender over time highlighted trends regarding age group distribution among female and male actors, reflecting the roles and representation of male and female characters in cinema.  
 The distribution of movie release languages was mainly dominated by English, so we decided to focus our study primarily on these movies to avoid a significant data imbalance.
 
-#### Identifying Features of Interest for Our Models in Milestone 3
+#### Identifying Features of Interest for Our Models 
 
-To capture the parameters most correlated with revenue, we plotted the correlation matrix with the most prominent movie genres, actor ethnicities, and genders. We created dummy variables for each of these classes, which will also be useful in training our models. More statistical analysis for causal inference is expected for Project M3.
+To capture the parameters most correlated with revenue, we plotted the correlation matrix with the most prominent movie genres, actor ethnicities, and genders. We created dummy variables for each of these classes, which will also be useful in training our models.
 
 ### Models and Answers to Scientific Questions (M3)
 
@@ -87,15 +87,13 @@ Our analysis examined the evolution of gender, age, ethnic, and LGBTQ+ represent
 These findings illustrate the gradual but uneven progress in representation across key dimensions, offering insights into how cinema reflects and drives societal change.
 
 
-## Proposed Timeline
+## Contributions
 
-**Week by week until the last milestone:**
-
-- **15.11.2023**: Step 1 and 2
-- **29.11.2023**: Homework 2
-- **06.12.2023**: Step 3.a, Step 3.b
-- **13.12.2023**: Step 3.b, Step 3.c
-- **20.12.2023**: Project review and Data Story
+- **Omar Badri**:
+- **Souhail Ed-Dlimi**:
+- **Amene Gafsi**: 
+- **Ahmed Reda Seghrouchni**: 
+- **Pierre Véron**: 
 
 ## Project Structure
 
