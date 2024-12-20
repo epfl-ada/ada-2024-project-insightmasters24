@@ -89,11 +89,11 @@ These findings illustrate the gradual but uneven progress in representation acro
 
 ## Contributions
 
-- **Omar Badri**:
-- **Souhail Ed-Dlimi**:
-- **Amene Gafsi**: 
-- **Ahmed Reda Seghrouchni**: 
-- **Pierre Véron**: 
+- *Omar Badri*: Plots and Notebook
+- *Souhail Ed-Dlimi*: Data Story and Website
+- *Amene Gafsi*: Website and Notebook
+- *Ahmed Reda Seghrouchni*: Data Story
+- *Pierre Véron*: Plots and Notebook
 
 ## Project Structure
 

@@ -26,6 +26,8 @@ cover-img: "/assets/img/images/header2.png"
 The evolution of gender, ethnic and other apparent physical features representation in cinema serves as a lens reflecting societal values and cultural shifts over decades. In this project, we seek to explore these dynamics by analyzing the physical characteristics of main actors—gender, ethnicity, sexual orientation, height, and age—across decades and genres, using the CMU movie summary corpus as our main data source. Together, we will investigate how specific archetypes emerge, evolve, and influence genre conventions and movie revenues, shedding light on diversity’s role in shaping audience engagement and the movie industry in general.  
 By examining trends in character archetypes in the movie industry, we aim to identify shifts in societal norms and values, allowing us to better understand the role of cinema in mirroring and potentially driving cultural changes.
 
+---
+
 # Introduction {#introduction}
 
 Hello reader,  
@@ -43,6 +45,8 @@ Thankfully, today's society is more open and inclusive, embracing stories that r
 Obviously not! Fifty or sixty years ago, representation of LGBTQ+ characters, racial diversity, and non-conforming gender identities in movies was far less common—and often met with strong resistance. Societal norms, censorship, and prejudices limited the stories that could be told and the characters that could be represented. In the United States, the Hays Code (1934–1968) regulated movie content, prohibiting explicit depictions of sexuality, “immoral” behavior, and any form of homosexuality, which was labeled as "sexual perversion." As a result, LGBTQ+ characters were either omitted, villainized, or their identities were subtly implied through coded language or stereotypes.
 
 By using movie revenue as a metric to assess how well a movie was received by the public, we aim to analyze the archetypes of characters portrayed in successful movies, shedding light on the audience's evolving interests and preferences, and thus offering insights into how societal norms and perceptions have shifted over the years.
+
+---
 
 # A few words on our analysis
 
@@ -63,6 +67,7 @@ Moreover, due to data imbalance when it comes to movie release language, I decid
 
 ![Average Movie Revenue per Year](/assets/img/plots/language-distribution-barplot.png)
 
+---
 
 # Effects of Diversity on Movie Revenue {#effects-of-diversity}
 
@@ -81,8 +86,6 @@ In order to convince you about the importance of diversity representation in cin
 Notice anything special ? The gender ratio, as well as the presence of some ethnicities such as actors from Jewish communities or African American ethnicities are positively correlated with the movie revenue (with a Spearman correlation of 0.20 and 0.26 respectively with movie revenue). Besides, movie genres seem also to affect the movie revenue, but I kept this chapter of our story for later, so stay tuned!
 
 Ah! Just before I forget : computing the Spearman correlation instead of the Pearson correlation WAS a choice. In fact, Spearman correlation is better suited to detect monotonic, but not necessarily linear relationships, thus providing more robust results. “robuster”? “more robust”? Well , you get the idea.
-
----
 
 #### How does the ratio of female actresses in the movie cast influences the revenue ?
 
@@ -122,6 +125,8 @@ But here's where it gets interesting: genres like Drama, Musicals and Dance, and
 An explanation for this observation—and one we’ll explore in more detail later—is that some genres, such as LGBT and Gender Issues, have only recently gained traction and popularity. For much of cinema history, they may have struggled to draw audiences, partly due to a social climate that was less open to their themes or narratives. As societal attitudes evolved, these genres began to find their place, but their earlier struggles are still reflected in their lower average revenues.
 
 All in all, it’s clear that when it comes to revenue, big, bold, and visually immersive genres steal the show, leaving the quieter categories fighting for their share of the spotlight.
+
+---
 
 # Evolution of Trends in the movie industry and what they reflect on society {#trends}
 
@@ -169,6 +174,8 @@ In particular, during year 1990-1994, the audience also seems to have shown incr
 Our observations highlight a society that idealizes young and likely elegant women in cinema as the embodiment of femininity.
 
 - _A neglected observation?_ \* You might be wondering : these students did not comment about the recurrent age feature! Minus one ! Well, they did, but this feature truly becomes interesting when coupled to other features such as gender. This will be further developed in the next chapter, so stay with me !
+
+---
 
 # The evolution of Gender representation in the movie industry across time {#gender-representation}
 
@@ -278,6 +285,8 @@ Isn't this better? We can observe that the mean percentage of movies with LGBTQ+
 
 This trend reflects a society that has become increasingly open to diversity and inclusive storytelling, and more recognizing the rights and existence of the LGBTQ+ community.
 
+---
+
 # The evolution of Ethnic representation in the movie industry across time : {#ethnic-representation}
 
 ![Fiji Islands](/assets/img/images/fiji_islands.png)
@@ -325,6 +334,8 @@ Besides, there’s something particularly heartwarming about Romance. With stead
 But here’s the kicker: the upward trend in Animation and Fantasy reveals a growing effort to create worlds where everyone can see themselves represented. These genres, which traditionally relied on Western-centric narratives, are now embracing more inclusive and diverse storytelling, reflecting a global shift in values. It shows that society is becoming more open to celebrating different cultures, identities, and traditions, not just in grounded, realistic settings, but in imaginative worlds as well.
 
 Overall, this heatmap paints a clear picture: while diversity has made strides across popular genres, progress is far from uniform. The data suggests a mix of progress, hesitation, and a reminder that some genres still have work to do in telling stories that reflect the richness of the world’s ethnic diversity, such as Sports and Horror movies (although this might not be the main focus of these movie genres anyway!)
+
+---
 
 # Conclusion : {#conclusion}
 
