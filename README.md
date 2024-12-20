@@ -108,15 +108,15 @@ The directory structure of new project looks like this:
 │
 ├── src                         <- Source code
 │   ├── data                            <- Data loading and preprocessing
-│   ├── models                          <- Model directory
-│   ├── utils                           <- Utility directory
-│   ├── scripts                         <- Shell scripts
+│   ├── models                          <- Models directory
+│   └── utils                           <- Utility directory
 │
-├── tests                       <- Tests of any kind
+├── tests                       <- Model tests
 │
-├── results.ipynb               <- a well-structured notebook showing our observations
+├── results.ipynb               <- A well-structured notebook showing our observations
 │
 ├── .gitignore                  <- List of files ignored by git
 ├── pip_requirements.txt        <- File for installing python dependencies
+├── docs                        <- Website files
 └── README.md
 ```
