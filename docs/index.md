@@ -191,9 +191,10 @@ However, a common misconception about the source of this imbalance is that older
 
 <!-- ![Gender distribution over time](/assets/img/plots/gender-distribution-time.png){: style="width:50%; margin-right:2%"} ![Gender distribution over periods](/assets/img/plots/Women-5-years.jpg){: style="width:50%"} -->
 
-![Gender distribution over time](/assets/img/plots/gender-distribution-time.png){: style="width:50%; margin-right:2%; display:inline-block;"}
-![Gender distribution over periods](/assets/img/plots/Women-5-years.jpg){: style="width:50%; display:inline-block;"}
-
+  <div style="display: flex; justify-content: space-between;">
+    <img src="/assets/img/plots/gender-distribution-time.png" style="width: 50%;">
+    <img src="/assets/img/plots/Women-5-years.jpg" style="width: 50%;">
+  </div>
 ![Gender distribution over time](/assets/img/plots/gender-distribution-time.png)
 
 ![Gender distribution over periods](/assets/img/plots/Women-5-years.jpg)
