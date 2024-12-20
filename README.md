@@ -101,7 +101,7 @@ These findings illustrate the gradual but uneven progress in representation acro
 
 ## Project Structure
 
-The directory structure of new project looks like this:
+The directory structure of the project looks like this:
 
 ```
 ├── datasets                        <- Project data files
