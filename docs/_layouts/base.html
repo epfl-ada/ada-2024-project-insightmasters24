@@ -30,13 +30,21 @@ common-js:
     <div class="container-fluid">
       <div class="row">
         <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
-          <div class="position-fixed" style="top: 0; height: 100vh">
-            <br>
-            <h5> <br> <br> <br> Table of Contents</h5>
+          <div
+            class="position-fixed"
+            style="top: 0; height: 100vh; width: inherit; max-width: inherit"
+          >
+            <br />
+            <h5>
+              <br />
+              <br />
+              <br />
+              Table of Contents
+            </h5>
             <ul class="nav flex-column">
               {% for section in page.toc %}
               <li class="nav-item">
-                <a class="nav-link" href="#{{ section.id }}"
+                <a class="nav-link text-break" href="#{{ section.id }}"
                   >{{ section.title }}</a
                 >
               </li>
