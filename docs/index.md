@@ -222,7 +222,7 @@ HEATMAP!!!!!!!!!
 
 ![Male distribution across genres](/assets/img/plots/heatmap_maleProp.png)
 
-<iframe src="assets/plots/male-ratio-heatmap.html" width="100%" height="300px" style="border:none; transform: scale(0.5);"></iframe>
+<iframe src="assets/plots/male_ratio_heatmap.html" width="100%" height="300px" style="border:none;"></iframe>
 
 
 At this point, this is a surprise for no one : men have historically dominated most movie genres, and that domination persists over the decades.
