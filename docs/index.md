@@ -206,12 +206,26 @@ Let’s now dive into an intriguing question: how has female representation vari
 
 ![Female distribution across genres](/assets/img/plots/heatmap_female.png)
 
-<div style="position: relative; width: 100%; height: 80vh;">
+<!-- <div style="position: relative; width: 100%; height: 80vh;">
+    <iframe
+        src="assets/plots/female_ratio_heatmap.html"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+    ></iframe>
+</div> -->
+<div style="position: relative; width: 100%; height: 500px;">
     <iframe 
         src="assets/plots/female_ratio_heatmap.html" 
         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+        scrolling="no"
     ></iframe>
 </div>
+<style>
+    @media (max-width: 768px) {
+        div[style*="position: relative"] {
+            height: 400px;
+        }
+    }
+</style>
 
 <!-- <iframe src="assets/plots/female_ratio_heatmap.html" width="100%" height="300px" style="border:none; transform: scale(0.5);"></iframe> -->
 
