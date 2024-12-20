@@ -1,5 +1,9 @@
 # Project Proposal: The Evolution of Gender and Ethnic Representation in Cinema
 
+
+[Visit our data story website](https://epfl-ada.github.io/ada-2024-project-insightmasters24/)
+
+
 ## Abstract
 
 The evolution of gender, ethnic, and other apparent physical features representation in cinema serves as a lens reflecting societal values and cultural shifts over decades. This project seeks to explore these dynamics by analyzing the physical characteristics of main actors—gender, ethnicity, sexual orientation, height, and age—across decades and genres, using the CMU movie summary corpus as our main data source. We find this project idea very compelling because it allows us to investigate how specific archetypes emerge, evolve, and influence genre conventions and movie revenues, shedding light on diversity’s role in shaping audience engagement and the movie industry in general. By examining shifts in societal norms, we aim to contribute to the understanding of cinema’s role in mirroring and potentially driving cultural changes, thus offering valuable insights into the power of representation in media.
