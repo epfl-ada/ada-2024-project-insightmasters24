@@ -189,7 +189,10 @@ Let’s be honest: women ARE underrepresented in the movie industry. In fact, wh
 
 However, a common misconception about the source of this imbalance is that older movies dataset may showcase less women in their cast, whereas the number of female actresses in movies has significantly increased over the years.
 
-![Gender distribution over time](/assets/img/plots/gender-distribution-time.png){: style="width:50%; margin-right:2%"} ![Gender distribution over periods](/assets/img/plots/Women-5-years.jpg){: style="width:50%"}
+<!-- ![Gender distribution over time](/assets/img/plots/gender-distribution-time.png){: style="width:50%; margin-right:2%"} ![Gender distribution over periods](/assets/img/plots/Women-5-years.jpg){: style="width:50%"} -->
+
+![Gender distribution over time](/assets/img/plots/gender-distribution-time.png){: style="width:50%; margin-right:2%; display:inline-block;"}
+![Gender distribution over periods](/assets/img/plots/Women-5-years.jpg){: style="width:50%; display:inline-block;"}
 
 ![Gender distribution over time](/assets/img/plots/gender-distribution-time.png)
 
@@ -202,6 +205,13 @@ Well, that’s unexpected ! When examining the data, the proportion of female ac
 Let’s now dive into an intriguing question: how has female representation varied across movie genres over time? While some genres might come to mind as more "female-friendly," others may have historically sidelined women in favor of male-dominated narratives. Has this dynamic evolved as society’s views on gender have changed, or have certain genres stubbornly resisted progress? Let’s take a closer look! HEATMAP!!!!!!
 
 ![Female distribution across genres](/assets/img/plots/heatmap_female.png)
+
+<div style="position: relative; width: 100%; padding-top: 56.25%;">
+    <iframe src"assets/plots/female_ratio_heatmap.html" 
+           style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"></iframe>
+/div>
+
+<!-- <iframe src="assets/plots/female_ratio_heatmap.html" width="100%" height="300px" style="border:none; transform: scale(0.5);"></iframe> -->
 
 What fascinating insights into female representation across genres and time periods this HEATMAP!!!! offers.
 
