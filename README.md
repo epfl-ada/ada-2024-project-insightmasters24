@@ -97,7 +97,7 @@ These findings illustrate the gradual but uneven progress in representation acro
 - *Souhail Ed-Dlimi*: Data Story and Website
 - *Amene Gafsi*: Website and Notebook
 - *Ahmed Reda Seghrouchni*: Data Story
-- *Pierre Véron*: Plots and Notebook
+- *Pierre Véron*: Plots and Website
 
 ## Project Structure
 
