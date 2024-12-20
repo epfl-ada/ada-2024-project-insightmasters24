@@ -189,10 +189,8 @@ Let’s be honest: women ARE underrepresented in the movie industry. In fact, wh
 
 However, a common misconception about the source of this imbalance is that older movies dataset may showcase less women in their cast, whereas the number of female actresses in movies has significantly increased over the years.
 
-<div style="display: flex; justify-content: space-between; width: 100%; max-width: none;">
-  <img src="/assets/img/plots/gender-distribution-time.png" alt="Gender distribution over time" style="width: 50%; margin-right: 2%;">
-  <img src="/assets/img/plots/Women-5-years.jpg" alt="Gender distribution over periods" style="width: 50%;">
-</div>
+![Gender distribution over time](/assets/img/plots/gender-distribution-time.png){: style="width:50%; margin-right:2%"}
+![Gender distribution over periods](/assets/img/plots/Women-5-years.jpg){: style="width:50%"}
 
 ![Gender distribution over time](/assets/img/plots/gender-distribution-time.png)
 
@@ -221,8 +219,6 @@ Overall, while progress has been made, female representation still fluctuates si
 HEATMAP!!!!!!!!!
 
 ![Male distribution across genres](/assets/img/plots/heatmap_maleProp.png)
-
-<iframe src="assets/plots/male_ratio_heatmap.html" width="120%" height="800px" style="border:none; max-width:100%;"></iframe>
 
 
 At this point, this is a surprise for no one : men have historically dominated most movie genres, and that domination persists over the decades.
@@ -273,8 +269,6 @@ What about the depiction of the LGBTQ+ community in the movie industry? Well, as
 
 ![LBGTQ movies](/assets/img/plots/LGBT-per-year.png)
 
-<iframe src="assets/plots/plot_lgbtq_movies_per_year.html" width="100%" height="100px" style="border:none;"></iframe>
-
 However, starting in the 1990s, there’s a clear upward trend, reflecting a growing acceptance and visibility of the LGBTQ+ community in society. This trend accelerates even further in the 2000s and 2010s, reaching its peak with over 200 movies per year (but then drastically decreasing after 2008… hmm… very suspicious).
 
 One might think that the sharp increase highlights how filmmakers and audiences alike have become more open to stories exploring LGBTQ+ themes, breaking away from years of stigma and underrepresentation. While the sudden dip at the end may indicate incomplete data or temporary fluctuation, the overall trend is a testament to the industry’s progress toward inclusivity and diversity.
@@ -286,8 +280,6 @@ BUT WAIT…. Isn’t there an issue here? What if this increase was due to more 
 Since more movies are produced over time, we need to account for this to really understand if the LGBTQ+ community depiction in movies has increased over time. Don't worry, we've got you covered! To overcome this issue, let’s analyze the mean percentage of movies covering the theme of LGBTQ+ communities instead 👍
 
 ![LBGTQ movies](/assets/img/plots/average-LGBT-per-year.png)
-
-<iframe src="assets/plots/plot_lgbtq_movies_percentage_per_period.html" width="70%" height="100px" style="border:none;"></iframe>
 
 Isn't this better? We can observe that the mean percentage of movies with LGBTQ+ themes per 5-year period has shown a steady increase over time. While the early years remained modest, with less than 1% representation before the 1920s, a notable rise began around the 1940s, followed by consistent growth throughout the second half of the century.
 
