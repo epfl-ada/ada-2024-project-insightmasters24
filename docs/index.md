@@ -81,7 +81,7 @@ In order to convince you about the importance of diversity representation in cin
 Notice anything special ? The gender ratio, as well as the presence of some ethnicities such as actors from Jewish communities or African American ethnicities are positively correlated with the movie revenue (with a Spearman correlation of 0.20 and 0.26 respectively with movie revenue). Besides, movie genres seem also to affect the movie revenue, but I kept this chapter of our story for later, so stay tuned!
 
 Ah! Just before I forget : computing the Spearman correlation instead of the Pearson correlation WAS a choice. In fact, Spearman correlation is better suited to detect monotonic, but not necessarily linear relationships, thus providing more robust results. “robuster”? “more robust”? Well , you get the idea.
-
+---
 #### How does the ratio of female actresses in the movie cast influences the revenue ?
 
 🎵Roses are red, Violets are blue 🎶 The ratio of female has an influence on the movie revenue !
